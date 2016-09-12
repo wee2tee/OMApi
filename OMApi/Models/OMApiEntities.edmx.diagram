@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5b2320238e434c6baad33ad479005507" Name="Diagram1">
+        <EntityTypeShape EntityType="OrderManagerModel.Arship" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Artrn" Width="1.5" PointX="18" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.AspNetUsers" Width="1.5" PointX="3" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Cart" Width="1.5" PointX="15.75" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Dlvprofile" Width="1.5" PointX="7.5" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.InternalUsers" Width="1.5" PointX="13.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Istab" Width="1.5" PointX="5.25" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Msg" Width="1.5" PointX="5.25" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Oeso" Width="1.5" PointX="12.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Oesoit" Width="1.5" PointX="21" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Popr" Width="1.5" PointX="7.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Poprit" Width="1.5" PointX="15.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Stcrd" Width="1.5" PointX="23.25" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Stmas" Width="1.5" PointX="10.5" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.Stpri" Width="1.5" PointX="5.25" PointY="37.375" IsExpanded="true" />
+        <AssociationConnector Association="OrderManagerModel.FK_ArshipId_Popr_Arship" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ChgBy_Arship_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_CreBy_Arship_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ApproveBy_Artrn_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ArtrnId_Stcrd_Artrn" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ChgBy_Artrn_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_CreBy_Artrn_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_DealerId_Artrn_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_Department_Artrn_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_DlvBy_Artrn_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_OesoId_Artrn_Oeso" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_AspNetUsers_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ChgBy_Istab_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ChgBy_Oeso_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ChgBy_Popr_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ChgBy_Stmas_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ChgBy_Stpri_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ConvIvBy_Oeso_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ConvSoBy_Popr_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_CreBy_Istab_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_CreBy_Oeso_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_CreBy_Popr_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_CreBy_Stmas_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_CreBy_Stpri_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_DealerId_Oeso_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_DlvProfile_AspNetUsers_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_MsgFrom_Msg_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_MsgTo_Msg_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_UserId_Cart_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_StmasId_Cart_Stmas" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_DlvId_Dlvprofile_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_ProfileId_Dlvprofile_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_Poprit_IvBy_InternalUsers_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_Poprit_SoBy_InternalUsers_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_CquCod_Stmas_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_Department_Oeso_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_Department_Popr_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_Department_Stcrd_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_DlvBy_Oeso_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_DlvBy_Popr_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_LocCod_Stcrd_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_PquCod_Stmas_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_QuCod_Stmas_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_SquCod_Stmas_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_StkGrp_Stmas_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_TquCod_Oesoit_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_TquCod_Poprit_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_TquCod_Stcrd_Istab" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_OesoId_Oesoit_Oeso" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_RefPo_Oeso_Popr" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_PopritId_Oesoit_Poprit" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_StmasId_Oesoit_Stmas" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_PoprId_Poprit_Popr" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_StmasId_Poprit_Stmas" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.FK_StmasId_Stcrd_Stmas" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagerModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,3361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrderManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Arship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipTo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Addr01" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Addr02" Type="nvarchar" MaxLength="50" />
+          <Property Name="Addr03" Type="nvarchar" MaxLength="30" />
+          <Property Name="ZipCod" Type="nvarchar" MaxLength="5" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="40" />
+          <Property Name="TelNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="FaxNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Artrn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OesoId" Type="int" />
+          <Property Name="DealerId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RecTyp" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DocNum" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DocDat" Type="date" Nullable="false" />
+          <Property Name="PostGL" Type="bit" Nullable="false" />
+          <Property Name="FlgVat" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Department" Type="int" />
+          <Property Name="DlvBy" Type="int" Nullable="false" />
+          <Property Name="ShipTo" Type="int" />
+          <Property Name="PayTrm" Type="int" Nullable="false" />
+          <Property Name="DueDat" Type="date" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="nvarchar" MaxLength="15" />
+          <Property Name="DiscAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatRate" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TaxAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgDate" Type="datetime" />
+          <Property Name="ApproveBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="CustPreName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustAddr01" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustAddr02" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustAddr03" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustZipCod" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="CustTelNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="CustFaxNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="CustTaxId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmsTracking" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeliveredDate" Type="date" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="SerNum" Type="nvarchar" MaxLength="20" />
+          <Property Name="PreName" Type="nvarchar" MaxLength="30" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TaxId" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserType" Type="int" Nullable="false" />
+          <Property Name="UserGroup" Type="int" Nullable="false" />
+          <Property Name="DealerType" Type="int" />
+          <Property Name="DealerCode" Type="nvarchar" MaxLength="30" />
+          <Property Name="Addr01" Type="nvarchar" MaxLength="50" />
+          <Property Name="Addr02" Type="nvarchar" MaxLength="50" />
+          <Property Name="Addr03" Type="nvarchar" MaxLength="30" />
+          <Property Name="ZipCod" Type="nvarchar" MaxLength="5" />
+          <Property Name="TelNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="FaxNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="IsRoot" Type="bit" Nullable="false" />
+          <Property Name="PriceCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="DlvProfile" Type="int" />
+          <Property Name="Disc" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DiscPerc" Type="bit" />
+          <Property Name="Disc2" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DiscPerc2" Type="bit" />
+          <Property Name="Status" Type="nvarchar" MaxLength="1" />
+          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="StmasId" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="SlipFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="TaxFileName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Dlvprofile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="DlvId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InternalUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Istab">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TabTyp" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="TypCod" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="AbbreviateTh" Type="nvarchar" MaxLength="20" />
+          <Property Name="AbbreviateEn" Type="nvarchar" MaxLength="20" />
+          <Property Name="TypDesTh" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypDesEn" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Msg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MsgToken" Type="nvarchar" MaxLength="150" />
+          <Property Name="MsgType" Type="int" Nullable="false" />
+          <Property Name="MsgContent" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="MsgLink" Type="nvarchar" MaxLength="200" />
+          <Property Name="MsgFrom" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MsgTo" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Oeso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PoprId" Type="int" />
+          <Property Name="DealerId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="SoRecTyp" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="SoNum" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SoDat" Type="date" Nullable="false" />
+          <Property Name="FlgVat" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Department" Type="int" />
+          <Property Name="ShipTo" Type="int" />
+          <Property Name="PayTrm" Type="int" Nullable="false" />
+          <Property Name="DlvBy" Type="int" Nullable="false" />
+          <Property Name="DlvDate1" Type="date" />
+          <Property Name="DlvDate2" Type="date" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiscAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatRate" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="VatAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TaxAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgDate" Type="datetime" />
+          <Property Name="ConvIvBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ConvIvDate" Type="datetime" />
+          <Property Name="CustPreName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustAddr01" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustAddr02" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustAddr03" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustZipCod" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="CustTelNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="CustFaxNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="CustTaxId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ExportDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Oesoit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OesoId" Type="int" Nullable="false" />
+          <Property Name="PopritId" Type="int" />
+          <Property Name="StmasId" Type="int" Nullable="false" />
+          <Property Name="StkDes" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DlvDat" Type="date" />
+          <Property Name="OrdQty" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TquCod" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="nvarchar" MaxLength="15" />
+          <Property Name="DiscAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TrnVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatCode" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Popr">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PoRecTyp" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PoNum" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PoDat" Type="date" Nullable="false" />
+          <Property Name="FlgVat" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Department" Type="int" />
+          <Property Name="ArshipId" Type="int" />
+          <Property Name="PayTrm" Type="int" Nullable="false" />
+          <Property Name="RcvDat" Type="date" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiscAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatRate" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="VatAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TaxAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgDate" Type="datetime" />
+          <Property Name="ConvSoBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ConvSoDate" Type="datetime" />
+          <Property Name="CustPreName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustAddr01" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustAddr02" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustAddr03" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustZipCod" Type="nvarchar" MaxLength="5" />
+          <Property Name="CustTelNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="CustFaxNum" Type="nvarchar" MaxLength="40" />
+          <Property Name="CustTaxId" Type="nvarchar" MaxLength="20" />
+          <Property Name="Dlvby" Type="int" Nullable="false" />
+          <Property Name="DlvDate1" Type="date" />
+          <Property Name="DlvDate2" Type="date" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SlipFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="TaxFileName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Poprit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PoprId" Type="int" Nullable="false" />
+          <Property Name="StmasId" Type="int" Nullable="false" />
+          <Property Name="StkDes" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RcvDat" Type="date" />
+          <Property Name="OrdQty" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TquCod" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="nvarchar" MaxLength="15" />
+          <Property Name="DiscAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TrnVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatCod" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="SoNum" Type="nvarchar" MaxLength="20" />
+          <Property Name="SoDat" Type="date" />
+          <Property Name="SoBy" Type="int" />
+          <Property Name="SoCreDate" Type="datetime" />
+          <Property Name="SoRemark" Type="nvarchar" MaxLength="50" />
+          <Property Name="IvNum" Type="nvarchar" MaxLength="20" />
+          <Property Name="IvDat" Type="date" />
+          <Property Name="IvBy" Type="int" />
+          <Property Name="IvCreDate" Type="datetime" />
+          <Property Name="EmsTracking" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeliveredDate" Type="datetime" />
+          <Property Name="IvRemark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Stcrd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StmasId" Type="int" />
+          <Property Name="ArtrnId" Type="int" />
+          <Property Name="StkDes" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Department" Type="int" />
+          <Property Name="Posopr" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="LocCod" Type="int" />
+          <Property Name="Docnum" Type="nvarchar" MaxLength="20" />
+          <Property Name="DocDat" Type="date" Nullable="false" />
+          <Property Name="RefNum" Type="nvarchar" MaxLength="20" />
+          <Property Name="Free" Type="char" MaxLength="1" />
+          <Property Name="VatCod" Type="char" MaxLength="1" />
+          <Property Name="TrnQty" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TquCod" Type="int" Nullable="false" />
+          <Property Name="TFactor" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="UnitPr" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="nvarchar" MaxLength="15" />
+          <Property Name="DiscAmt" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TrnVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="RetStk" Type="bit" Nullable="false" />
+          <Property Name="XTrnQty" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="XUnitPr" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="XTrnVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="XSalVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetVal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatCode" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stmas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Stkcod" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StkDesTh" Type="nvarchar" MaxLength="50" />
+          <Property Name="StkDesEn" Type="nvarchar" MaxLength="50" />
+          <Property Name="Barcod" Type="varchar" MaxLength="40" />
+          <Property Name="ProductImg" Type="varchar" MaxLength="50" />
+          <Property Name="StkTyp" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="StkGrp" Type="int" Nullable="false" />
+          <Property Name="Acccod" Type="int" />
+          <Property Name="Qucod" Type="int" Nullable="false" />
+          <Property Name="Cqucod" Type="int" />
+          <Property Name="Squcod" Type="int" />
+          <Property Name="Pqucod" Type="int" />
+          <Property Name="Cfactor" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Sfactor" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Pfactor" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stkcods" Type="int" />
+          <Property Name="NegAllow" Type="char" MaxLength="10" />
+          <Property Name="Sellpr1" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Sellpr2" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Sellpr3" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Sellpr4" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Sellpr5" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Vatcod" Type="nvarchar" MaxLength="1" />
+          <Property Name="Stnpr" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Totbal" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ReserveBool" Type="bit" />
+          <Property Name="ReserveInt" Type="int" />
+          <Property Name="ReserveDec" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ReserveStr" Type="varchar" MaxLength="50" />
+          <Property Name="ComRate" Type="decimal" Precision="6" Scale="4" />
+          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgDate" Type="datetime" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Stpri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriceCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="TabPr" Type="int" Nullable="false" />
+          <Property Name="Disc1" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DiscPerc1" Type="bit" />
+          <Property Name="Disc2" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DiscPerc2" Type="bit" />
+          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
+          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_ApproveBy_Artrn_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="ApproveBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArshipId_Popr_Arship">
+          <End Role="Arship" Type="Self.Arship" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arship">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="ArshipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtrnId_Stcrd_Artrn">
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="0..1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artrn">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="ArtrnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Arship_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Arship" Type="Self.Arship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arship">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Artrn_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Istab_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Istab">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Oeso_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Popr_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Stmas_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Stpri_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stpri">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConvIvBy_Oeso_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="ConvIvBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConvSoBy_Popr_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="ConvSoBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CquCod_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Cqucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Arship_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Arship" Type="Self.Arship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arship">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Artrn_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Istab_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Istab">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Oeso_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Popr_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Stmas_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Stpri_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stpri">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerId_Artrn_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="DealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerId_Oeso_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="DealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Artrn_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Oeso_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Popr_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Stcrd_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvBy_Artrn_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="DlvBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvBy_Oeso_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="DlvBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvBy_Popr_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="Dlvby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvId_Dlvprofile_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Dlvprofile" Type="Self.Dlvprofile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dlvprofile">
+              <PropertyRef Name="DlvId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvProfile_AspNetUsers_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="DlvProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocCod_Stcrd_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="LocCod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MsgFrom_Msg_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Msg" Type="Self.Msg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Msg">
+              <PropertyRef Name="MsgFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MsgTo_Msg_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Msg" Type="Self.Msg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Msg">
+              <PropertyRef Name="MsgTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OesoId_Artrn_Oeso">
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="0..1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oeso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="OesoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OesoId_Oesoit_Oeso">
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="1" />
+          <End Role="Oesoit" Type="Self.Oesoit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oeso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oesoit">
+              <PropertyRef Name="OesoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoprId_Poprit_Popr">
+          <End Role="Popr" Type="Self.Popr" Multiplicity="1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Popr">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="PoprId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PopritId_Oesoit_Poprit">
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="0..1" />
+          <End Role="Oesoit" Type="Self.Oesoit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poprit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oesoit">
+              <PropertyRef Name="PopritId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poprit-IvBy_InternalUsers-Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="IvBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poprit-SoBy_InternalUsers-Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="SoBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PquCod_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Pqucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileId_Dlvprofile_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Dlvprofile" Type="Self.Dlvprofile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dlvprofile">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuCod_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Qucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RefPo_Oeso_Popr">
+          <End Role="Popr" Type="Self.Popr" Multiplicity="0..1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Popr">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="PoprId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SquCod_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Squcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StkGrp_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="StkGrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StmasId_Cart_Stmas">
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stmas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StmasId_Oesoit_Stmas">
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="1" />
+          <End Role="Oesoit" Type="Self.Oesoit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stmas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oesoit">
+              <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StmasId_Poprit_Stmas">
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stmas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StmasId_Stcrd_Stmas">
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="0..1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stmas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TquCod_Oesoit_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Oesoit" Type="Self.Oesoit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oesoit">
+              <PropertyRef Name="TquCod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TquCod_Poprit_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="TquCod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TquCod_Stcrd_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="TquCod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserId_Cart_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OrderManagerModelStoreContainer">
+          <EntitySet Name="Arship" EntityType="Self.Arship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Artrn" EntityType="Self.Artrn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dlvprofile" EntityType="Self.Dlvprofile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternalUsers" EntityType="Self.InternalUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Istab" EntityType="Self.Istab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Msg" EntityType="Self.Msg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oeso" EntityType="Self.Oeso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oesoit" EntityType="Self.Oesoit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Popr" EntityType="Self.Popr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poprit" EntityType="Self.Poprit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stcrd" EntityType="Self.Stcrd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stmas" EntityType="Self.Stmas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stpri" EntityType="Self.Stpri" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ApproveBy_Artrn_AspNetUsers" Association="Self.FK_ApproveBy_Artrn_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArshipId_Popr_Arship" Association="Self.FK_ArshipId_Popr_Arship">
+            <End Role="Arship" EntitySet="Arship" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtrnId_Stcrd_Artrn" Association="Self.FK_ArtrnId_Stcrd_Artrn">
+            <End Role="Artrn" EntitySet="Artrn" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_AspNetUsers" Association="Self.FK_AspNetUsers_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Arship_AspNetUsers" Association="Self.FK_ChgBy_Arship_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Arship" EntitySet="Arship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Artrn_AspNetUsers" Association="Self.FK_ChgBy_Artrn_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Istab_AspNetUsers" Association="Self.FK_ChgBy_Istab_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Istab" EntitySet="Istab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Oeso_AspNetUsers" Association="Self.FK_ChgBy_Oeso_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Popr_AspNetUsers" Association="Self.FK_ChgBy_Popr_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Stmas_AspNetUsers" Association="Self.FK_ChgBy_Stmas_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Stpri_AspNetUsers" Association="Self.FK_ChgBy_Stpri_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Stpri" EntitySet="Stpri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConvIvBy_Oeso_AspNetUsers" Association="Self.FK_ConvIvBy_Oeso_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConvSoBy_Popr_AspNetUsers" Association="Self.FK_ConvSoBy_Popr_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CquCod_Stmas_Istab" Association="Self.FK_CquCod_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Arship_AspNetUsers" Association="Self.FK_CreBy_Arship_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Arship" EntitySet="Arship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Artrn_AspNetUsers" Association="Self.FK_CreBy_Artrn_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Istab_AspNetUsers" Association="Self.FK_CreBy_Istab_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Istab" EntitySet="Istab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Oeso_AspNetUsers" Association="Self.FK_CreBy_Oeso_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Popr_AspNetUsers" Association="Self.FK_CreBy_Popr_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Stmas_AspNetUsers" Association="Self.FK_CreBy_Stmas_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Stpri_AspNetUsers" Association="Self.FK_CreBy_Stpri_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Stpri" EntitySet="Stpri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerId_Artrn_AspNetUsers" Association="Self.FK_DealerId_Artrn_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerId_Oeso_AspNetUsers" Association="Self.FK_DealerId_Oeso_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Artrn_Istab" Association="Self.FK_Department_Artrn_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Oeso_Istab" Association="Self.FK_Department_Oeso_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Popr_Istab" Association="Self.FK_Department_Popr_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Stcrd_Istab" Association="Self.FK_Department_Stcrd_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvBy_Artrn_Istab" Association="Self.FK_DlvBy_Artrn_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvBy_Oeso_Istab" Association="Self.FK_DlvBy_Oeso_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvBy_Popr_Istab" Association="Self.FK_DlvBy_Popr_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvId_Dlvprofile_Istab" Association="Self.FK_DlvId_Dlvprofile_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Dlvprofile" EntitySet="Dlvprofile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvProfile_AspNetUsers_Istab" Association="Self.FK_DlvProfile_AspNetUsers_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocCod_Stcrd_Istab" Association="Self.FK_LocCod_Stcrd_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MsgFrom_Msg_AspNetUsers" Association="Self.FK_MsgFrom_Msg_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Msg" EntitySet="Msg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MsgTo_Msg_AspNetUsers" Association="Self.FK_MsgTo_Msg_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Msg" EntitySet="Msg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OesoId_Artrn_Oeso" Association="Self.FK_OesoId_Artrn_Oeso">
+            <End Role="Oeso" EntitySet="Oeso" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OesoId_Oesoit_Oeso" Association="Self.FK_OesoId_Oesoit_Oeso">
+            <End Role="Oeso" EntitySet="Oeso" />
+            <End Role="Oesoit" EntitySet="Oesoit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoprId_Poprit_Popr" Association="Self.FK_PoprId_Poprit_Popr">
+            <End Role="Popr" EntitySet="Popr" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PopritId_Oesoit_Poprit" Association="Self.FK_PopritId_Oesoit_Poprit">
+            <End Role="Poprit" EntitySet="Poprit" />
+            <End Role="Oesoit" EntitySet="Oesoit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poprit-IvBy_InternalUsers-Id" Association="Self.FK_Poprit-IvBy_InternalUsers-Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poprit-SoBy_InternalUsers-Id" Association="Self.FK_Poprit-SoBy_InternalUsers-Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PquCod_Stmas_Istab" Association="Self.FK_PquCod_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileId_Dlvprofile_Istab" Association="Self.FK_ProfileId_Dlvprofile_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Dlvprofile" EntitySet="Dlvprofile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuCod_Stmas_Istab" Association="Self.FK_QuCod_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RefPo_Oeso_Popr" Association="Self.FK_RefPo_Oeso_Popr">
+            <End Role="Popr" EntitySet="Popr" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SquCod_Stmas_Istab" Association="Self.FK_SquCod_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StkGrp_Stmas_Istab" Association="Self.FK_StkGrp_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StmasId_Cart_Stmas" Association="Self.FK_StmasId_Cart_Stmas">
+            <End Role="Stmas" EntitySet="Stmas" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StmasId_Oesoit_Stmas" Association="Self.FK_StmasId_Oesoit_Stmas">
+            <End Role="Stmas" EntitySet="Stmas" />
+            <End Role="Oesoit" EntitySet="Oesoit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StmasId_Poprit_Stmas" Association="Self.FK_StmasId_Poprit_Stmas">
+            <End Role="Stmas" EntitySet="Stmas" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StmasId_Stcrd_Stmas" Association="Self.FK_StmasId_Stcrd_Stmas">
+            <End Role="Stmas" EntitySet="Stmas" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TquCod_Oesoit_Istab" Association="Self.FK_TquCod_Oesoit_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Oesoit" EntitySet="Oesoit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TquCod_Poprit_Istab" Association="Self.FK_TquCod_Poprit_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TquCod_Stcrd_Istab" Association="Self.FK_TquCod_Stcrd_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserId_Cart_AspNetUsers" Association="Self.FK_UserId_Cart_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrderManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Arship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipTo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Addr01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Addr02" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Addr03" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCod" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="TelNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Popr" Relationship="Self.FK_ArshipId_Popr_Arship" FromRole="Arship" ToRole="Popr" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Arship_AspNetUsers" FromRole="Arship" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_CreBy_Arship_AspNetUsers" FromRole="Arship" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="Artrn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OesoId" Type="Int32" />
+          <Property Name="DealerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RecTyp" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DocNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocDat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PostGL" Type="Boolean" Nullable="false" />
+          <Property Name="FlgVat" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Department" Type="Int32" />
+          <Property Name="DlvBy" Type="Int32" Nullable="false" />
+          <Property Name="ShipTo" Type="Int32" />
+          <Property Name="PayTrm" Type="Int32" Nullable="false" />
+          <Property Name="DueDat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DiscAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatRate" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TaxAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgDate" Type="DateTime" Precision="3" />
+          <Property Name="ApproveBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="CustPreName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustAddr01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustAddr02" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustAddr03" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustZipCod" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustTelNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CustFaxNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CustTaxId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmsTracking" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveredDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ApproveBy_Artrn_AspNetUsers" FromRole="Artrn" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Stcrd" Relationship="Self.FK_ArtrnId_Stcrd_Artrn" FromRole="Artrn" ToRole="Stcrd" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_ChgBy_Artrn_AspNetUsers" FromRole="Artrn" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_CreBy_Artrn_AspNetUsers" FromRole="Artrn" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers3" Relationship="Self.FK_DealerId_Artrn_AspNetUsers" FromRole="Artrn" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_Department_Artrn_Istab" FromRole="Artrn" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_DlvBy_Artrn_Istab" FromRole="Artrn" ToRole="Istab" />
+          <NavigationProperty Name="Oeso" Relationship="Self.FK_OesoId_Artrn_Oeso" FromRole="Artrn" ToRole="Oeso" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PreName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TaxId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Int32" Nullable="false" />
+          <Property Name="UserGroup" Type="Int32" Nullable="false" />
+          <Property Name="DealerType" Type="Int32" />
+          <Property Name="DealerCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Addr01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Addr02" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Addr03" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCod" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="TelNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="IsRoot" Type="Boolean" Nullable="false" />
+          <Property Name="PriceCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DlvProfile" Type="Int32" />
+          <Property Name="Disc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscPerc" Type="Boolean" />
+          <Property Name="Disc2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscPerc2" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Arship" Relationship="Self.FK_ChgBy_Arship_AspNetUsers" FromRole="AspNetUsers" ToRole="Arship" />
+          <NavigationProperty Name="Arship1" Relationship="Self.FK_CreBy_Arship_AspNetUsers" FromRole="AspNetUsers" ToRole="Arship" />
+          <NavigationProperty Name="Artrn" Relationship="Self.FK_ApproveBy_Artrn_AspNetUsers" FromRole="AspNetUsers" ToRole="Artrn" />
+          <NavigationProperty Name="Artrn1" Relationship="Self.FK_ChgBy_Artrn_AspNetUsers" FromRole="AspNetUsers" ToRole="Artrn" />
+          <NavigationProperty Name="Artrn2" Relationship="Self.FK_CreBy_Artrn_AspNetUsers" FromRole="AspNetUsers" ToRole="Artrn" />
+          <NavigationProperty Name="Artrn3" Relationship="Self.FK_DealerId_Artrn_AspNetUsers" FromRole="AspNetUsers" ToRole="Artrn" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_AspNetUsers_AspNetUsers" FromRole="AspNetUsers" ToRole="AspNetUsers1" />
+          <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_AspNetUsers_AspNetUsers" FromRole="AspNetUsers1" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_ChgBy_Istab_AspNetUsers" FromRole="AspNetUsers" ToRole="Istab" />
+          <NavigationProperty Name="Oeso" Relationship="Self.FK_ChgBy_Oeso_AspNetUsers" FromRole="AspNetUsers" ToRole="Oeso" />
+          <NavigationProperty Name="Popr" Relationship="Self.FK_ChgBy_Popr_AspNetUsers" FromRole="AspNetUsers" ToRole="Popr" />
+          <NavigationProperty Name="Stmas" Relationship="Self.FK_ChgBy_Stmas_AspNetUsers" FromRole="AspNetUsers" ToRole="Stmas" />
+          <NavigationProperty Name="Stpri" Relationship="Self.FK_ChgBy_Stpri_AspNetUsers" FromRole="AspNetUsers" ToRole="Stpri" />
+          <NavigationProperty Name="Oeso1" Relationship="Self.FK_ConvIvBy_Oeso_AspNetUsers" FromRole="AspNetUsers" ToRole="Oeso" />
+          <NavigationProperty Name="Popr1" Relationship="Self.FK_ConvSoBy_Popr_AspNetUsers" FromRole="AspNetUsers" ToRole="Popr" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_CreBy_Istab_AspNetUsers" FromRole="AspNetUsers" ToRole="Istab" />
+          <NavigationProperty Name="Oeso2" Relationship="Self.FK_CreBy_Oeso_AspNetUsers" FromRole="AspNetUsers" ToRole="Oeso" />
+          <NavigationProperty Name="Popr2" Relationship="Self.FK_CreBy_Popr_AspNetUsers" FromRole="AspNetUsers" ToRole="Popr" />
+          <NavigationProperty Name="Stmas1" Relationship="Self.FK_CreBy_Stmas_AspNetUsers" FromRole="AspNetUsers" ToRole="Stmas" />
+          <NavigationProperty Name="Stpri1" Relationship="Self.FK_CreBy_Stpri_AspNetUsers" FromRole="AspNetUsers" ToRole="Stpri" />
+          <NavigationProperty Name="Oeso3" Relationship="Self.FK_DealerId_Oeso_AspNetUsers" FromRole="AspNetUsers" ToRole="Oeso" />
+          <NavigationProperty Name="Istab2" Relationship="Self.FK_DlvProfile_AspNetUsers_Istab" FromRole="AspNetUsers" ToRole="Istab" />
+          <NavigationProperty Name="Msg" Relationship="Self.FK_MsgFrom_Msg_AspNetUsers" FromRole="AspNetUsers" ToRole="Msg" />
+          <NavigationProperty Name="Msg1" Relationship="Self.FK_MsgTo_Msg_AspNetUsers" FromRole="AspNetUsers" ToRole="Msg" />
+          <NavigationProperty Name="Cart" Relationship="Self.FK_UserId_Cart_AspNetUsers" FromRole="AspNetUsers" ToRole="Cart" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StmasId" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SlipFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TaxFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_UserId_Cart_AspNetUsers" FromRole="Cart" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Stmas" Relationship="Self.FK_StmasId_Cart_Stmas" FromRole="Cart" ToRole="Stmas" />
+        </EntityType>
+        <EntityType Name="Dlvprofile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="DlvId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_DlvId_Dlvprofile_Istab" FromRole="Dlvprofile" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_ProfileId_Dlvprofile_Istab" FromRole="Dlvprofile" ToRole="Istab" />
+        </EntityType>
+        <EntityType Name="InternalUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Department" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Poprit" Relationship="Self.FK_Poprit_IvBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Poprit" />
+          <NavigationProperty Name="Poprit1" Relationship="Self.FK_Poprit_SoBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Poprit" />
+        </EntityType>
+        <EntityType Name="Istab">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TabTyp" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TypCod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AbbreviateTh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AbbreviateEn" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TypDesTh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypDesEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Artrn" Relationship="Self.FK_Department_Artrn_Istab" FromRole="Istab" ToRole="Artrn" />
+          <NavigationProperty Name="Artrn1" Relationship="Self.FK_DlvBy_Artrn_Istab" FromRole="Istab" ToRole="Artrn" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Istab_AspNetUsers" FromRole="Istab" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_CreBy_Istab_AspNetUsers" FromRole="Istab" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_DlvProfile_AspNetUsers_Istab" FromRole="Istab" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Dlvprofile" Relationship="Self.FK_DlvId_Dlvprofile_Istab" FromRole="Istab" ToRole="Dlvprofile" />
+          <NavigationProperty Name="Dlvprofile1" Relationship="Self.FK_ProfileId_Dlvprofile_Istab" FromRole="Istab" ToRole="Dlvprofile" />
+          <NavigationProperty Name="Stmas" Relationship="Self.FK_CquCod_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Oeso" Relationship="Self.FK_Department_Oeso_Istab" FromRole="Istab" ToRole="Oeso" />
+          <NavigationProperty Name="Popr" Relationship="Self.FK_Department_Popr_Istab" FromRole="Istab" ToRole="Popr" />
+          <NavigationProperty Name="Stcrd" Relationship="Self.FK_Department_Stcrd_Istab" FromRole="Istab" ToRole="Stcrd" />
+          <NavigationProperty Name="Oeso1" Relationship="Self.FK_DlvBy_Oeso_Istab" FromRole="Istab" ToRole="Oeso" />
+          <NavigationProperty Name="Popr1" Relationship="Self.FK_DlvBy_Popr_Istab" FromRole="Istab" ToRole="Popr" />
+          <NavigationProperty Name="Stcrd1" Relationship="Self.FK_LocCod_Stcrd_Istab" FromRole="Istab" ToRole="Stcrd" />
+          <NavigationProperty Name="Stmas1" Relationship="Self.FK_PquCod_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Stmas2" Relationship="Self.FK_QuCod_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Stmas3" Relationship="Self.FK_SquCod_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Stmas4" Relationship="Self.FK_StkGrp_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Oesoit" Relationship="Self.FK_TquCod_Oesoit_Istab" FromRole="Istab" ToRole="Oesoit" />
+          <NavigationProperty Name="Poprit" Relationship="Self.FK_TquCod_Poprit_Istab" FromRole="Istab" ToRole="Poprit" />
+          <NavigationProperty Name="Stcrd2" Relationship="Self.FK_TquCod_Stcrd_Istab" FromRole="Istab" ToRole="Stcrd" />
+        </EntityType>
+        <EntityType Name="Msg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MsgToken" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MsgType" Type="Int32" Nullable="false" />
+          <Property Name="MsgContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MsgLink" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MsgFrom" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MsgTo" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_MsgFrom_Msg_AspNetUsers" FromRole="Msg" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_MsgTo_Msg_AspNetUsers" FromRole="Msg" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="Oeso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PoprId" Type="Int32" />
+          <Property Name="DealerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoRecTyp" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SoNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoDat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FlgVat" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Department" Type="Int32" />
+          <Property Name="ShipTo" Type="Int32" />
+          <Property Name="PayTrm" Type="Int32" Nullable="false" />
+          <Property Name="DlvBy" Type="Int32" Nullable="false" />
+          <Property Name="DlvDate1" Type="DateTime" Precision="0" />
+          <Property Name="DlvDate2" Type="DateTime" Precision="0" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiscAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatRate" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="VatAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TaxAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgDate" Type="DateTime" Precision="3" />
+          <Property Name="ConvIvBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ConvIvDate" Type="DateTime" Precision="3" />
+          <Property Name="CustPreName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustAddr01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustAddr02" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustAddr03" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustZipCod" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustTelNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CustFaxNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CustTaxId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExportDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Artrn" Relationship="Self.FK_OesoId_Artrn_Oeso" FromRole="Oeso" ToRole="Artrn" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Oeso_AspNetUsers" FromRole="Oeso" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_ConvIvBy_Oeso_AspNetUsers" FromRole="Oeso" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_CreBy_Oeso_AspNetUsers" FromRole="Oeso" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers3" Relationship="Self.FK_DealerId_Oeso_AspNetUsers" FromRole="Oeso" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_Department_Oeso_Istab" FromRole="Oeso" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_DlvBy_Oeso_Istab" FromRole="Oeso" ToRole="Istab" />
+          <NavigationProperty Name="Oesoit" Relationship="Self.FK_OesoId_Oesoit_Oeso" FromRole="Oeso" ToRole="Oesoit" />
+          <NavigationProperty Name="Popr" Relationship="Self.FK_RefPo_Oeso_Popr" FromRole="Oeso" ToRole="Popr" />
+        </EntityType>
+        <EntityType Name="Oesoit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OesoId" Type="Int32" Nullable="false" />
+          <Property Name="PopritId" Type="Int32" />
+          <Property Name="StmasId" Type="Int32" Nullable="false" />
+          <Property Name="StkDes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DlvDat" Type="DateTime" Precision="0" />
+          <Property Name="OrdQty" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TquCod" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DiscAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TrnVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_TquCod_Oesoit_Istab" FromRole="Oesoit" ToRole="Istab" />
+          <NavigationProperty Name="Oeso" Relationship="Self.FK_OesoId_Oesoit_Oeso" FromRole="Oesoit" ToRole="Oeso" />
+          <NavigationProperty Name="Poprit" Relationship="Self.FK_PopritId_Oesoit_Poprit" FromRole="Oesoit" ToRole="Poprit" />
+          <NavigationProperty Name="Stmas" Relationship="Self.FK_StmasId_Oesoit_Stmas" FromRole="Oesoit" ToRole="Stmas" />
+        </EntityType>
+        <EntityType Name="Popr">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PoRecTyp" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PoNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PoDat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FlgVat" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Department" Type="Int32" />
+          <Property Name="ArshipId" Type="Int32" />
+          <Property Name="PayTrm" Type="Int32" Nullable="false" />
+          <Property Name="RcvDat" Type="DateTime" Precision="0" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiscAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatRate" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="VatAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TaxAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgDate" Type="DateTime" Precision="3" />
+          <Property Name="ConvSoBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ConvSoDate" Type="DateTime" Precision="3" />
+          <Property Name="CustPreName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustAddr01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustAddr02" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustAddr03" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustZipCod" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="CustTelNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CustFaxNum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CustTaxId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Dlvby" Type="Int32" Nullable="false" />
+          <Property Name="DlvDate1" Type="DateTime" Precision="0" />
+          <Property Name="DlvDate2" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SlipFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TaxFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Arship" Relationship="Self.FK_ArshipId_Popr_Arship" FromRole="Popr" ToRole="Arship" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Popr_AspNetUsers" FromRole="Popr" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_ConvSoBy_Popr_AspNetUsers" FromRole="Popr" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_CreBy_Popr_AspNetUsers" FromRole="Popr" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_Department_Popr_Istab" FromRole="Popr" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_DlvBy_Popr_Istab" FromRole="Popr" ToRole="Istab" />
+          <NavigationProperty Name="Oeso" Relationship="Self.FK_RefPo_Oeso_Popr" FromRole="Popr" ToRole="Oeso" />
+          <NavigationProperty Name="Poprit" Relationship="Self.FK_PoprId_Poprit_Popr" FromRole="Popr" ToRole="Poprit" />
+        </EntityType>
+        <EntityType Name="Poprit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PoprId" Type="Int32" Nullable="false" />
+          <Property Name="StmasId" Type="Int32" Nullable="false" />
+          <Property Name="StkDes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RcvDat" Type="DateTime" Precision="0" />
+          <Property Name="OrdQty" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TquCod" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DiscAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TrnVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatCod" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SoNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SoDat" Type="DateTime" Precision="0" />
+          <Property Name="SoBy" Type="Int32" />
+          <Property Name="SoCreDate" Type="DateTime" Precision="3" />
+          <Property Name="SoRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IvNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IvDat" Type="DateTime" Precision="0" />
+          <Property Name="IvBy" Type="Int32" />
+          <Property Name="IvCreDate" Type="DateTime" Precision="3" />
+          <Property Name="EmsTracking" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveredDate" Type="DateTime" Precision="3" />
+          <Property Name="IvRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InternalUsers" Relationship="Self.FK_Poprit_IvBy_InternalUsers_Id" FromRole="Poprit" ToRole="InternalUsers" />
+          <NavigationProperty Name="InternalUsers1" Relationship="Self.FK_Poprit_SoBy_InternalUsers_Id" FromRole="Poprit" ToRole="InternalUsers" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_TquCod_Poprit_Istab" FromRole="Poprit" ToRole="Istab" />
+          <NavigationProperty Name="Oesoit" Relationship="Self.FK_PopritId_Oesoit_Poprit" FromRole="Poprit" ToRole="Oesoit" />
+          <NavigationProperty Name="Popr" Relationship="Self.FK_PoprId_Poprit_Popr" FromRole="Poprit" ToRole="Popr" />
+          <NavigationProperty Name="Stmas" Relationship="Self.FK_StmasId_Poprit_Stmas" FromRole="Poprit" ToRole="Stmas" />
+        </EntityType>
+        <EntityType Name="Stcrd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StmasId" Type="Int32" />
+          <Property Name="ArtrnId" Type="Int32" />
+          <Property Name="StkDes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Department" Type="Int32" />
+          <Property Name="Posopr" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LocCod" Type="Int32" />
+          <Property Name="Docnum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DocDat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RefNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Free" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="VatCod" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TrnQty" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TquCod" Type="Int32" Nullable="false" />
+          <Property Name="TFactor" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="UnitPr" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Disc" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DiscAmt" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TrnVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="RetStk" Type="Boolean" Nullable="false" />
+          <Property Name="XTrnQty" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="XUnitPr" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="XTrnVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="XSalVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="NetVal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="VatCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Artrn" Relationship="Self.FK_ArtrnId_Stcrd_Artrn" FromRole="Stcrd" ToRole="Artrn" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_Department_Stcrd_Istab" FromRole="Stcrd" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_LocCod_Stcrd_Istab" FromRole="Stcrd" ToRole="Istab" />
+          <NavigationProperty Name="Istab2" Relationship="Self.FK_TquCod_Stcrd_Istab" FromRole="Stcrd" ToRole="Istab" />
+          <NavigationProperty Name="Stmas" Relationship="Self.FK_StmasId_Stcrd_Stmas" FromRole="Stcrd" ToRole="Stmas" />
+        </EntityType>
+        <EntityType Name="Stmas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Stkcod" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StkDesTh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StkDesEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barcod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ProductImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StkTyp" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StkGrp" Type="Int32" Nullable="false" />
+          <Property Name="Acccod" Type="Int32" />
+          <Property Name="Qucod" Type="Int32" Nullable="false" />
+          <Property Name="Cqucod" Type="Int32" />
+          <Property Name="Squcod" Type="Int32" />
+          <Property Name="Pqucod" Type="Int32" />
+          <Property Name="Cfactor" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Sfactor" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Pfactor" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stkcods" Type="Int32" />
+          <Property Name="NegAllow" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Sellpr1" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Sellpr2" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Sellpr3" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Sellpr4" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Sellpr5" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Vatcod" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Stnpr" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Totbal" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ReserveBool" Type="Boolean" />
+          <Property Name="ReserveInt" Type="Int32" />
+          <Property Name="ReserveDec" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ReserveStr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ComRate" Type="Decimal" Precision="6" Scale="4" />
+          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Stmas_AspNetUsers" FromRole="Stmas" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_CreBy_Stmas_AspNetUsers" FromRole="Stmas" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Cart" Relationship="Self.FK_StmasId_Cart_Stmas" FromRole="Stmas" ToRole="Cart" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_CquCod_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_PquCod_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Istab2" Relationship="Self.FK_QuCod_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Istab3" Relationship="Self.FK_SquCod_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Istab4" Relationship="Self.FK_StkGrp_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Oesoit" Relationship="Self.FK_StmasId_Oesoit_Stmas" FromRole="Stmas" ToRole="Oesoit" />
+          <NavigationProperty Name="Poprit" Relationship="Self.FK_StmasId_Poprit_Stmas" FromRole="Stmas" ToRole="Poprit" />
+          <NavigationProperty Name="Stcrd" Relationship="Self.FK_StmasId_Stcrd_Stmas" FromRole="Stmas" ToRole="Stcrd" />
+        </EntityType>
+        <EntityType Name="Stpri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PriceCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TabPr" Type="Int32" Nullable="false" />
+          <Property Name="Disc1" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DiscPerc1" Type="Boolean" />
+          <Property Name="Disc2" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DiscPerc2" Type="Boolean" />
+          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Stpri_AspNetUsers" FromRole="Stpri" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_CreBy_Stpri_AspNetUsers" FromRole="Stpri" ToRole="AspNetUsers" />
+        </EntityType>
+        <Association Name="FK_ArshipId_Popr_Arship">
+          <End Role="Arship" Type="Self.Arship" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arship">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="ArshipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Arship_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Arship" Type="Self.Arship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arship">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Arship_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Arship" Type="Self.Arship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arship">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApproveBy_Artrn_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="ApproveBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtrnId_Stcrd_Artrn">
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="0..1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artrn">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="ArtrnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Artrn_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Artrn_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerId_Artrn_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="DealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Artrn_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvBy_Artrn_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="DlvBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OesoId_Artrn_Oeso">
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="0..1" />
+          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oeso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Artrn">
+              <PropertyRef Name="OesoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Istab_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Istab">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Oeso_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Popr_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Stmas_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChgBy_Stpri_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stpri">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConvIvBy_Oeso_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="ConvIvBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConvSoBy_Popr_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="ConvSoBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Istab_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Istab">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Oeso_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Popr_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Stmas_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreBy_Stpri_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stpri">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerId_Oeso_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="DealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvProfile_AspNetUsers_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="DlvProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MsgFrom_Msg_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Msg" Type="Self.Msg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Msg">
+              <PropertyRef Name="MsgFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MsgTo_Msg_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Msg" Type="Self.Msg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Msg">
+              <PropertyRef Name="MsgTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserId_Cart_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StmasId_Cart_Stmas">
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stmas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvId_Dlvprofile_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Dlvprofile" Type="Self.Dlvprofile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dlvprofile">
+              <PropertyRef Name="DlvId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileId_Dlvprofile_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Dlvprofile" Type="Self.Dlvprofile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dlvprofile">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poprit_IvBy_InternalUsers_Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="IvBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poprit_SoBy_InternalUsers_Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="SoBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CquCod_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Cqucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Oeso_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Popr_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Stcrd_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvBy_Oeso_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="DlvBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DlvBy_Popr_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="Dlvby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocCod_Stcrd_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="LocCod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PquCod_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Pqucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuCod_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Qucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SquCod_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Squcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StkGrp_Stmas_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="StkGrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TquCod_Oesoit_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Oesoit" Type="Self.Oesoit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oesoit">
+              <PropertyRef Name="TquCod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TquCod_Poprit_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="TquCod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TquCod_Stcrd_Istab">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="TquCod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OesoId_Oesoit_Oeso">
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="1" />
+          <End Role="Oesoit" Type="Self.Oesoit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oeso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oesoit">
+              <PropertyRef Name="OesoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RefPo_Oeso_Popr">
+          <End Role="Popr" Type="Self.Popr" Multiplicity="0..1" />
+          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Popr">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oeso">
+              <PropertyRef Name="PoprId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PopritId_Oesoit_Poprit">
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="0..1" />
+          <End Role="Oesoit" Type="Self.Oesoit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poprit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oesoit">
+              <PropertyRef Name="PopritId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StmasId_Oesoit_Stmas">
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="1" />
+          <End Role="Oesoit" Type="Self.Oesoit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stmas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oesoit">
+              <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoprId_Poprit_Popr">
+          <End Role="Popr" Type="Self.Popr" Multiplicity="1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Popr">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="PoprId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StmasId_Poprit_Stmas">
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="1" />
+          <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stmas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poprit">
+              <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StmasId_Stcrd_Stmas">
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="0..1" />
+          <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stmas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stcrd">
+              <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="OMApiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Arship" EntityType="Self.Arship" />
+          <EntitySet Name="Artrn" EntityType="Self.Artrn" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" />
+          <EntitySet Name="Dlvprofile" EntityType="Self.Dlvprofile" />
+          <EntitySet Name="InternalUsers" EntityType="Self.InternalUsers" />
+          <EntitySet Name="Istab" EntityType="Self.Istab" />
+          <EntitySet Name="Msg" EntityType="Self.Msg" />
+          <EntitySet Name="Oeso" EntityType="Self.Oeso" />
+          <EntitySet Name="Oesoit" EntityType="Self.Oesoit" />
+          <EntitySet Name="Popr" EntityType="Self.Popr" />
+          <EntitySet Name="Poprit" EntityType="Self.Poprit" />
+          <EntitySet Name="Stcrd" EntityType="Self.Stcrd" />
+          <EntitySet Name="Stmas" EntityType="Self.Stmas" />
+          <EntitySet Name="Stpri" EntityType="Self.Stpri" />
+          <AssociationSet Name="FK_ArshipId_Popr_Arship" Association="Self.FK_ArshipId_Popr_Arship">
+            <End Role="Arship" EntitySet="Arship" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Arship_AspNetUsers" Association="Self.FK_ChgBy_Arship_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Arship" EntitySet="Arship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Arship_AspNetUsers" Association="Self.FK_CreBy_Arship_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Arship" EntitySet="Arship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApproveBy_Artrn_AspNetUsers" Association="Self.FK_ApproveBy_Artrn_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtrnId_Stcrd_Artrn" Association="Self.FK_ArtrnId_Stcrd_Artrn">
+            <End Role="Artrn" EntitySet="Artrn" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Artrn_AspNetUsers" Association="Self.FK_ChgBy_Artrn_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Artrn_AspNetUsers" Association="Self.FK_CreBy_Artrn_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerId_Artrn_AspNetUsers" Association="Self.FK_DealerId_Artrn_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Artrn_Istab" Association="Self.FK_Department_Artrn_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvBy_Artrn_Istab" Association="Self.FK_DlvBy_Artrn_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OesoId_Artrn_Oeso" Association="Self.FK_OesoId_Artrn_Oeso">
+            <End Role="Oeso" EntitySet="Oeso" />
+            <End Role="Artrn" EntitySet="Artrn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_AspNetUsers" Association="Self.FK_AspNetUsers_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Istab_AspNetUsers" Association="Self.FK_ChgBy_Istab_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Istab" EntitySet="Istab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Oeso_AspNetUsers" Association="Self.FK_ChgBy_Oeso_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Popr_AspNetUsers" Association="Self.FK_ChgBy_Popr_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Stmas_AspNetUsers" Association="Self.FK_ChgBy_Stmas_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChgBy_Stpri_AspNetUsers" Association="Self.FK_ChgBy_Stpri_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Stpri" EntitySet="Stpri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConvIvBy_Oeso_AspNetUsers" Association="Self.FK_ConvIvBy_Oeso_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConvSoBy_Popr_AspNetUsers" Association="Self.FK_ConvSoBy_Popr_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Istab_AspNetUsers" Association="Self.FK_CreBy_Istab_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Istab" EntitySet="Istab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Oeso_AspNetUsers" Association="Self.FK_CreBy_Oeso_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Popr_AspNetUsers" Association="Self.FK_CreBy_Popr_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Stmas_AspNetUsers" Association="Self.FK_CreBy_Stmas_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreBy_Stpri_AspNetUsers" Association="Self.FK_CreBy_Stpri_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Stpri" EntitySet="Stpri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerId_Oeso_AspNetUsers" Association="Self.FK_DealerId_Oeso_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvProfile_AspNetUsers_Istab" Association="Self.FK_DlvProfile_AspNetUsers_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MsgFrom_Msg_AspNetUsers" Association="Self.FK_MsgFrom_Msg_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Msg" EntitySet="Msg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MsgTo_Msg_AspNetUsers" Association="Self.FK_MsgTo_Msg_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Msg" EntitySet="Msg" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserId_Cart_AspNetUsers" Association="Self.FK_UserId_Cart_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StmasId_Cart_Stmas" Association="Self.FK_StmasId_Cart_Stmas">
+            <End Role="Stmas" EntitySet="Stmas" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvId_Dlvprofile_Istab" Association="Self.FK_DlvId_Dlvprofile_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Dlvprofile" EntitySet="Dlvprofile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileId_Dlvprofile_Istab" Association="Self.FK_ProfileId_Dlvprofile_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Dlvprofile" EntitySet="Dlvprofile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poprit_IvBy_InternalUsers_Id" Association="Self.FK_Poprit_IvBy_InternalUsers_Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poprit_SoBy_InternalUsers_Id" Association="Self.FK_Poprit_SoBy_InternalUsers_Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CquCod_Stmas_Istab" Association="Self.FK_CquCod_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Oeso_Istab" Association="Self.FK_Department_Oeso_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Popr_Istab" Association="Self.FK_Department_Popr_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Stcrd_Istab" Association="Self.FK_Department_Stcrd_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvBy_Oeso_Istab" Association="Self.FK_DlvBy_Oeso_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DlvBy_Popr_Istab" Association="Self.FK_DlvBy_Popr_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocCod_Stcrd_Istab" Association="Self.FK_LocCod_Stcrd_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PquCod_Stmas_Istab" Association="Self.FK_PquCod_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuCod_Stmas_Istab" Association="Self.FK_QuCod_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SquCod_Stmas_Istab" Association="Self.FK_SquCod_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StkGrp_Stmas_Istab" Association="Self.FK_StkGrp_Stmas_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TquCod_Oesoit_Istab" Association="Self.FK_TquCod_Oesoit_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Oesoit" EntitySet="Oesoit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TquCod_Poprit_Istab" Association="Self.FK_TquCod_Poprit_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TquCod_Stcrd_Istab" Association="Self.FK_TquCod_Stcrd_Istab">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OesoId_Oesoit_Oeso" Association="Self.FK_OesoId_Oesoit_Oeso">
+            <End Role="Oeso" EntitySet="Oeso" />
+            <End Role="Oesoit" EntitySet="Oesoit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RefPo_Oeso_Popr" Association="Self.FK_RefPo_Oeso_Popr">
+            <End Role="Popr" EntitySet="Popr" />
+            <End Role="Oeso" EntitySet="Oeso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PopritId_Oesoit_Poprit" Association="Self.FK_PopritId_Oesoit_Poprit">
+            <End Role="Poprit" EntitySet="Poprit" />
+            <End Role="Oesoit" EntitySet="Oesoit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StmasId_Oesoit_Stmas" Association="Self.FK_StmasId_Oesoit_Stmas">
+            <End Role="Stmas" EntitySet="Stmas" />
+            <End Role="Oesoit" EntitySet="Oesoit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoprId_Poprit_Popr" Association="Self.FK_PoprId_Poprit_Popr">
+            <End Role="Popr" EntitySet="Popr" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StmasId_Poprit_Stmas" Association="Self.FK_StmasId_Poprit_Stmas">
+            <End Role="Stmas" EntitySet="Stmas" />
+            <End Role="Poprit" EntitySet="Poprit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StmasId_Stcrd_Stmas" Association="Self.FK_StmasId_Stcrd_Stmas">
+            <End Role="Stmas" EntitySet="Stmas" />
+            <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrderManagerModelStoreContainer" CdmEntityContainer="OMApiEntities">
+          <EntitySetMapping Name="Arship">
+            <EntityTypeMapping TypeName="OrderManagerModel.Arship">
+              <MappingFragment StoreEntitySet="Arship">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShipTo" ColumnName="ShipTo" />
+                <ScalarProperty Name="Addr01" ColumnName="Addr01" />
+                <ScalarProperty Name="Addr02" ColumnName="Addr02" />
+                <ScalarProperty Name="Addr03" ColumnName="Addr03" />
+                <ScalarProperty Name="ZipCod" ColumnName="ZipCod" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="TelNum" ColumnName="TelNum" />
+                <ScalarProperty Name="FaxNum" ColumnName="FaxNum" />
+                <ScalarProperty Name="CreBy" ColumnName="CreBy" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="ChgBy" ColumnName="ChgBy" />
+                <ScalarProperty Name="ChgDate" ColumnName="ChgDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artrn">
+            <EntityTypeMapping TypeName="OrderManagerModel.Artrn">
+              <MappingFragment StoreEntitySet="Artrn">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OesoId" ColumnName="OesoId" />
+                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+                <ScalarProperty Name="RecTyp" ColumnName="RecTyp" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="DocDat" ColumnName="DocDat" />
+                <ScalarProperty Name="PostGL" ColumnName="PostGL" />
+                <ScalarProperty Name="FlgVat" ColumnName="FlgVat" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="DlvBy" ColumnName="DlvBy" />
+                <ScalarProperty Name="ShipTo" ColumnName="ShipTo" />
+                <ScalarProperty Name="PayTrm" ColumnName="PayTrm" />
+                <ScalarProperty Name="DueDat" ColumnName="DueDat" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Disc" ColumnName="Disc" />
+                <ScalarProperty Name="DiscAmt" ColumnName="DiscAmt" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="VatRate" ColumnName="VatRate" />
+                <ScalarProperty Name="VatAmt" ColumnName="VatAmt" />
+                <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+                <ScalarProperty Name="NetAmt" ColumnName="NetAmt" />
+                <ScalarProperty Name="NetVal" ColumnName="NetVal" />
+                <ScalarProperty Name="CreBy" ColumnName="CreBy" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="ChgBy" ColumnName="ChgBy" />
+                <ScalarProperty Name="ChgDate" ColumnName="ChgDate" />
+                <ScalarProperty Name="ApproveBy" ColumnName="ApproveBy" />
+                <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
+                <ScalarProperty Name="CustPreName" ColumnName="CustPreName" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustAddr01" ColumnName="CustAddr01" />
+                <ScalarProperty Name="CustAddr02" ColumnName="CustAddr02" />
+                <ScalarProperty Name="CustAddr03" ColumnName="CustAddr03" />
+                <ScalarProperty Name="CustZipCod" ColumnName="CustZipCod" />
+                <ScalarProperty Name="CustTelNum" ColumnName="CustTelNum" />
+                <ScalarProperty Name="CustFaxNum" ColumnName="CustFaxNum" />
+                <ScalarProperty Name="CustTaxId" ColumnName="CustTaxId" />
+                <ScalarProperty Name="EmsTracking" ColumnName="EmsTracking" />
+                <ScalarProperty Name="DeliveredDate" ColumnName="DeliveredDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="OrderManagerModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="OrderManagerModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="OrderManagerModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="OrderManagerModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SerNum" ColumnName="SerNum" />
+                <ScalarProperty Name="PreName" ColumnName="PreName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+                <ScalarProperty Name="DealerType" ColumnName="DealerType" />
+                <ScalarProperty Name="DealerCode" ColumnName="DealerCode" />
+                <ScalarProperty Name="Addr01" ColumnName="Addr01" />
+                <ScalarProperty Name="Addr02" ColumnName="Addr02" />
+                <ScalarProperty Name="Addr03" ColumnName="Addr03" />
+                <ScalarProperty Name="ZipCod" ColumnName="ZipCod" />
+                <ScalarProperty Name="TelNum" ColumnName="TelNum" />
+                <ScalarProperty Name="FaxNum" ColumnName="FaxNum" />
+                <ScalarProperty Name="IsRoot" ColumnName="IsRoot" />
+                <ScalarProperty Name="PriceCode" ColumnName="PriceCode" />
+                <ScalarProperty Name="DlvProfile" ColumnName="DlvProfile" />
+                <ScalarProperty Name="Disc" ColumnName="Disc" />
+                <ScalarProperty Name="DiscPerc" ColumnName="DiscPerc" />
+                <ScalarProperty Name="Disc2" ColumnName="Disc2" />
+                <ScalarProperty Name="DiscPerc2" ColumnName="DiscPerc2" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ChgBy" ColumnName="ChgBy" />
+                <ScalarProperty Name="ChgDate" ColumnName="ChgDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cart">
+            <EntityTypeMapping TypeName="OrderManagerModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="StmasId" ColumnName="StmasId" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="SlipFileName" ColumnName="SlipFileName" />
+                <ScalarProperty Name="TaxFileName" ColumnName="TaxFileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dlvprofile">
+            <EntityTypeMapping TypeName="OrderManagerModel.Dlvprofile">
+              <MappingFragment StoreEntitySet="Dlvprofile">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="DlvId" ColumnName="DlvId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternalUsers">
+            <EntityTypeMapping TypeName="OrderManagerModel.InternalUsers">
+              <MappingFragment StoreEntitySet="InternalUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Istab">
+            <EntityTypeMapping TypeName="OrderManagerModel.Istab">
+              <MappingFragment StoreEntitySet="Istab">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TabTyp" ColumnName="TabTyp" />
+                <ScalarProperty Name="TypCod" ColumnName="TypCod" />
+                <ScalarProperty Name="AbbreviateTh" ColumnName="AbbreviateTh" />
+                <ScalarProperty Name="AbbreviateEn" ColumnName="AbbreviateEn" />
+                <ScalarProperty Name="TypDesTh" ColumnName="TypDesTh" />
+                <ScalarProperty Name="TypDesEn" ColumnName="TypDesEn" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="CreBy" ColumnName="CreBy" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="ChgBy" ColumnName="ChgBy" />
+                <ScalarProperty Name="ChgDate" ColumnName="ChgDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Msg">
+            <EntityTypeMapping TypeName="OrderManagerModel.Msg">
+              <MappingFragment StoreEntitySet="Msg">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MsgToken" ColumnName="MsgToken" />
+                <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+                <ScalarProperty Name="MsgContent" ColumnName="MsgContent" />
+                <ScalarProperty Name="MsgLink" ColumnName="MsgLink" />
+                <ScalarProperty Name="MsgFrom" ColumnName="MsgFrom" />
+                <ScalarProperty Name="MsgTo" ColumnName="MsgTo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oeso">
+            <EntityTypeMapping TypeName="OrderManagerModel.Oeso">
+              <MappingFragment StoreEntitySet="Oeso">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PoprId" ColumnName="PoprId" />
+                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+                <ScalarProperty Name="SoRecTyp" ColumnName="SoRecTyp" />
+                <ScalarProperty Name="SoNum" ColumnName="SoNum" />
+                <ScalarProperty Name="SoDat" ColumnName="SoDat" />
+                <ScalarProperty Name="FlgVat" ColumnName="FlgVat" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ShipTo" ColumnName="ShipTo" />
+                <ScalarProperty Name="PayTrm" ColumnName="PayTrm" />
+                <ScalarProperty Name="DlvBy" ColumnName="DlvBy" />
+                <ScalarProperty Name="DlvDate1" ColumnName="DlvDate1" />
+                <ScalarProperty Name="DlvDate2" ColumnName="DlvDate2" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Disc" ColumnName="Disc" />
+                <ScalarProperty Name="DiscAmt" ColumnName="DiscAmt" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="VatRate" ColumnName="VatRate" />
+                <ScalarProperty Name="VatAmt" ColumnName="VatAmt" />
+                <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+                <ScalarProperty Name="NetAmt" ColumnName="NetAmt" />
+                <ScalarProperty Name="NetVal" ColumnName="NetVal" />
+                <ScalarProperty Name="CreBy" ColumnName="CreBy" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="ChgBy" ColumnName="ChgBy" />
+                <ScalarProperty Name="ChgDate" ColumnName="ChgDate" />
+                <ScalarProperty Name="ConvIvBy" ColumnName="ConvIvBy" />
+                <ScalarProperty Name="ConvIvDate" ColumnName="ConvIvDate" />
+                <ScalarProperty Name="CustPreName" ColumnName="CustPreName" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustAddr01" ColumnName="CustAddr01" />
+                <ScalarProperty Name="CustAddr02" ColumnName="CustAddr02" />
+                <ScalarProperty Name="CustAddr03" ColumnName="CustAddr03" />
+                <ScalarProperty Name="CustZipCod" ColumnName="CustZipCod" />
+                <ScalarProperty Name="CustTelNum" ColumnName="CustTelNum" />
+                <ScalarProperty Name="CustFaxNum" ColumnName="CustFaxNum" />
+                <ScalarProperty Name="CustTaxId" ColumnName="CustTaxId" />
+                <ScalarProperty Name="ExportDate" ColumnName="ExportDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oesoit">
+            <EntityTypeMapping TypeName="OrderManagerModel.Oesoit">
+              <MappingFragment StoreEntitySet="Oesoit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OesoId" ColumnName="OesoId" />
+                <ScalarProperty Name="PopritId" ColumnName="PopritId" />
+                <ScalarProperty Name="StmasId" ColumnName="StmasId" />
+                <ScalarProperty Name="StkDes" ColumnName="StkDes" />
+                <ScalarProperty Name="DlvDat" ColumnName="DlvDat" />
+                <ScalarProperty Name="OrdQty" ColumnName="OrdQty" />
+                <ScalarProperty Name="TquCod" ColumnName="TquCod" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Disc" ColumnName="Disc" />
+                <ScalarProperty Name="DiscAmt" ColumnName="DiscAmt" />
+                <ScalarProperty Name="TrnVal" ColumnName="TrnVal" />
+                <ScalarProperty Name="VatCode" ColumnName="VatCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Popr">
+            <EntityTypeMapping TypeName="OrderManagerModel.Popr">
+              <MappingFragment StoreEntitySet="Popr">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PoRecTyp" ColumnName="PoRecTyp" />
+                <ScalarProperty Name="PoNum" ColumnName="PoNum" />
+                <ScalarProperty Name="PoDat" ColumnName="PoDat" />
+                <ScalarProperty Name="FlgVat" ColumnName="FlgVat" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ArshipId" ColumnName="ArshipId" />
+                <ScalarProperty Name="PayTrm" ColumnName="PayTrm" />
+                <ScalarProperty Name="RcvDat" ColumnName="RcvDat" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Disc" ColumnName="Disc" />
+                <ScalarProperty Name="DiscAmt" ColumnName="DiscAmt" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="VatRate" ColumnName="VatRate" />
+                <ScalarProperty Name="VatAmt" ColumnName="VatAmt" />
+                <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+                <ScalarProperty Name="NetAmt" ColumnName="NetAmt" />
+                <ScalarProperty Name="NetVal" ColumnName="NetVal" />
+                <ScalarProperty Name="CreBy" ColumnName="CreBy" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="ChgBy" ColumnName="ChgBy" />
+                <ScalarProperty Name="ChgDate" ColumnName="ChgDate" />
+                <ScalarProperty Name="ConvSoBy" ColumnName="ConvSoBy" />
+                <ScalarProperty Name="ConvSoDate" ColumnName="ConvSoDate" />
+                <ScalarProperty Name="CustPreName" ColumnName="CustPreName" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustAddr01" ColumnName="CustAddr01" />
+                <ScalarProperty Name="CustAddr02" ColumnName="CustAddr02" />
+                <ScalarProperty Name="CustAddr03" ColumnName="CustAddr03" />
+                <ScalarProperty Name="CustZipCod" ColumnName="CustZipCod" />
+                <ScalarProperty Name="CustTelNum" ColumnName="CustTelNum" />
+                <ScalarProperty Name="CustFaxNum" ColumnName="CustFaxNum" />
+                <ScalarProperty Name="CustTaxId" ColumnName="CustTaxId" />
+                <ScalarProperty Name="Dlvby" ColumnName="Dlvby" />
+                <ScalarProperty Name="DlvDate1" ColumnName="DlvDate1" />
+                <ScalarProperty Name="DlvDate2" ColumnName="DlvDate2" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SlipFileName" ColumnName="SlipFileName" />
+                <ScalarProperty Name="TaxFileName" ColumnName="TaxFileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poprit">
+            <EntityTypeMapping TypeName="OrderManagerModel.Poprit">
+              <MappingFragment StoreEntitySet="Poprit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PoprId" ColumnName="PoprId" />
+                <ScalarProperty Name="StmasId" ColumnName="StmasId" />
+                <ScalarProperty Name="StkDes" ColumnName="StkDes" />
+                <ScalarProperty Name="RcvDat" ColumnName="RcvDat" />
+                <ScalarProperty Name="OrdQty" ColumnName="OrdQty" />
+                <ScalarProperty Name="TquCod" ColumnName="TquCod" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Disc" ColumnName="Disc" />
+                <ScalarProperty Name="DiscAmt" ColumnName="DiscAmt" />
+                <ScalarProperty Name="TrnVal" ColumnName="TrnVal" />
+                <ScalarProperty Name="VatCod" ColumnName="VatCod" />
+                <ScalarProperty Name="SoNum" ColumnName="SoNum" />
+                <ScalarProperty Name="SoDat" ColumnName="SoDat" />
+                <ScalarProperty Name="SoBy" ColumnName="SoBy" />
+                <ScalarProperty Name="SoCreDate" ColumnName="SoCreDate" />
+                <ScalarProperty Name="SoRemark" ColumnName="SoRemark" />
+                <ScalarProperty Name="IvNum" ColumnName="IvNum" />
+                <ScalarProperty Name="IvDat" ColumnName="IvDat" />
+                <ScalarProperty Name="IvBy" ColumnName="IvBy" />
+                <ScalarProperty Name="IvCreDate" ColumnName="IvCreDate" />
+                <ScalarProperty Name="EmsTracking" ColumnName="EmsTracking" />
+                <ScalarProperty Name="DeliveredDate" ColumnName="DeliveredDate" />
+                <ScalarProperty Name="IvRemark" ColumnName="IvRemark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stcrd">
+            <EntityTypeMapping TypeName="OrderManagerModel.Stcrd">
+              <MappingFragment StoreEntitySet="Stcrd">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StmasId" ColumnName="StmasId" />
+                <ScalarProperty Name="ArtrnId" ColumnName="ArtrnId" />
+                <ScalarProperty Name="StkDes" ColumnName="StkDes" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Posopr" ColumnName="Posopr" />
+                <ScalarProperty Name="LocCod" ColumnName="LocCod" />
+                <ScalarProperty Name="Docnum" ColumnName="Docnum" />
+                <ScalarProperty Name="DocDat" ColumnName="DocDat" />
+                <ScalarProperty Name="RefNum" ColumnName="RefNum" />
+                <ScalarProperty Name="Free" ColumnName="Free" />
+                <ScalarProperty Name="VatCod" ColumnName="VatCod" />
+                <ScalarProperty Name="TrnQty" ColumnName="TrnQty" />
+                <ScalarProperty Name="TquCod" ColumnName="TquCod" />
+                <ScalarProperty Name="TFactor" ColumnName="TFactor" />
+                <ScalarProperty Name="UnitPr" ColumnName="UnitPr" />
+                <ScalarProperty Name="Disc" ColumnName="Disc" />
+                <ScalarProperty Name="DiscAmt" ColumnName="DiscAmt" />
+                <ScalarProperty Name="TrnVal" ColumnName="TrnVal" />
+                <ScalarProperty Name="RetStk" ColumnName="RetStk" />
+                <ScalarProperty Name="XTrnQty" ColumnName="XTrnQty" />
+                <ScalarProperty Name="XUnitPr" ColumnName="XUnitPr" />
+                <ScalarProperty Name="XTrnVal" ColumnName="XTrnVal" />
+                <ScalarProperty Name="XSalVal" ColumnName="XSalVal" />
+                <ScalarProperty Name="NetVal" ColumnName="NetVal" />
+                <ScalarProperty Name="VatCode" ColumnName="VatCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stmas">
+            <EntityTypeMapping TypeName="OrderManagerModel.Stmas">
+              <MappingFragment StoreEntitySet="Stmas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Stkcod" ColumnName="Stkcod" />
+                <ScalarProperty Name="StkDesTh" ColumnName="StkDesTh" />
+                <ScalarProperty Name="StkDesEn" ColumnName="StkDesEn" />
+                <ScalarProperty Name="Barcod" ColumnName="Barcod" />
+                <ScalarProperty Name="ProductImg" ColumnName="ProductImg" />
+                <ScalarProperty Name="StkTyp" ColumnName="StkTyp" />
+                <ScalarProperty Name="StkGrp" ColumnName="StkGrp" />
+                <ScalarProperty Name="Acccod" ColumnName="Acccod" />
+                <ScalarProperty Name="Qucod" ColumnName="Qucod" />
+                <ScalarProperty Name="Cqucod" ColumnName="Cqucod" />
+                <ScalarProperty Name="Squcod" ColumnName="Squcod" />
+                <ScalarProperty Name="Pqucod" ColumnName="Pqucod" />
+                <ScalarProperty Name="Cfactor" ColumnName="Cfactor" />
+                <ScalarProperty Name="Sfactor" ColumnName="Sfactor" />
+                <ScalarProperty Name="Pfactor" ColumnName="Pfactor" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Stkcods" ColumnName="Stkcods" />
+                <ScalarProperty Name="NegAllow" ColumnName="NegAllow" />
+                <ScalarProperty Name="Sellpr1" ColumnName="Sellpr1" />
+                <ScalarProperty Name="Sellpr2" ColumnName="Sellpr2" />
+                <ScalarProperty Name="Sellpr3" ColumnName="Sellpr3" />
+                <ScalarProperty Name="Sellpr4" ColumnName="Sellpr4" />
+                <ScalarProperty Name="Sellpr5" ColumnName="Sellpr5" />
+                <ScalarProperty Name="Vatcod" ColumnName="Vatcod" />
+                <ScalarProperty Name="Stnpr" ColumnName="Stnpr" />
+                <ScalarProperty Name="Totbal" ColumnName="Totbal" />
+                <ScalarProperty Name="ReserveBool" ColumnName="ReserveBool" />
+                <ScalarProperty Name="ReserveInt" ColumnName="ReserveInt" />
+                <ScalarProperty Name="ReserveDec" ColumnName="ReserveDec" />
+                <ScalarProperty Name="ReserveStr" ColumnName="ReserveStr" />
+                <ScalarProperty Name="ComRate" ColumnName="ComRate" />
+                <ScalarProperty Name="CreBy" ColumnName="CreBy" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="ChgBy" ColumnName="ChgBy" />
+                <ScalarProperty Name="ChgDate" ColumnName="ChgDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stpri">
+            <EntityTypeMapping TypeName="OrderManagerModel.Stpri">
+              <MappingFragment StoreEntitySet="Stpri">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PriceCode" ColumnName="PriceCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TabPr" ColumnName="TabPr" />
+                <ScalarProperty Name="Disc1" ColumnName="Disc1" />
+                <ScalarProperty Name="DiscPerc1" ColumnName="DiscPerc1" />
+                <ScalarProperty Name="Disc2" ColumnName="Disc2" />
+                <ScalarProperty Name="DiscPerc2" ColumnName="DiscPerc2" />
+                <ScalarProperty Name="CreBy" ColumnName="CreBy" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
+                <ScalarProperty Name="ChgBy" ColumnName="ChgBy" />
+                <ScalarProperty Name="ChgDate" ColumnName="ChgDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="OrderManagerModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
