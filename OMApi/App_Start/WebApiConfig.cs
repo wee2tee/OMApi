@@ -18,10 +18,13 @@ namespace OMApi
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+                //name: "DefaultApi",
+                //routeTemplate: "api/{controller}/{id}",
+                //defaults: new { id = RouteParameter.Optional }
+                name: "ActionApi",
+                routeTemplate: "api/{controller}/{action}/{api_key}/{id}",
+                defaults: new { api_key = string.Empty, id = RouteParameter.Optional, action = "Get" }
+           );
         }
     }
 }

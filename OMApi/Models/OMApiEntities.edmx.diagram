@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5b2320238e434c6baad33ad479005507" Name="Diagram1">
+      <Diagram DiagramId="f7af1a0a7b884928ab3571bf91672a9e" Name="Diagram1">
         <EntityTypeShape EntityType="OrderManagerModel.Arship" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderManagerModel.Artrn" Width="1.5" PointX="18" PointY="24" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderManagerModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="27.5" IsExpanded="true" />
@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="OrderManagerModel.AspNetUsers" Width="1.5" PointX="3" PointY="21.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderManagerModel.Cart" Width="1.5" PointX="15.75" PointY="33.125" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderManagerModel.Dlvprofile" Width="1.5" PointX="7.5" PointY="32" IsExpanded="true" />
-        <EntityTypeShape EntityType="OrderManagerModel.InternalUsers" Width="1.5" PointX="13.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagerModel.InternalUsers" Width="1.5" PointX="13.5" PointY="19.375" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderManagerModel.Istab" Width="1.5" PointX="5.25" PointY="29.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderManagerModel.Msg" Width="1.5" PointX="5.25" PointY="25.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderManagerModel.Oeso" Width="1.5" PointX="12.75" PointY="23.625" IsExpanded="true" />

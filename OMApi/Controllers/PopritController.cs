@@ -13,44 +13,48 @@ namespace OMApi.Controllers
     {
         private OMApiEntities db = new OMApiEntities();
 
-        public IEnumerable<PopritVM> Get(string api_key)
+        //public IEnumerable<PopritVM> Get(string api_key)
+        //{
+        //    if (api_key == null || api_key != ApiResource.GetValueOf("API_KEY"))
+        //        return null;
+
+        //    return db.Poprit.ToViewModel();
+        //}
+
+        //public IHttpActionResult Get(string api_key, int? id)
+        //{
+        //    if (api_key == null || api_key != ApiResource.GetValueOf("API_KEY") || id == null)
+        //        return NotFound();
+
+        //    PopritVM poprit = db.Poprit.Where(p => p.Id == id).FirstOrDefault().ToViewModel();
+
+        //    if (poprit == null)
+        //        return NotFound();
+
+        //    return Ok(poprit);
+        //}
+
+        //public IHttpActionResult Put(string api_key, int? id)
+        //{
+        //    Poprit poprit = db.Poprit.Where(p => p.Id == id).FirstOrDefault();
+        //    poprit.StkDes = poprit.StkDes + "...";
+
+        //    db.SaveChanges();
+        //    return Ok(poprit);
+        //}
+
+        [AcceptVerbs("GET")]
+        [ActionName("GetOrder")]
+        public IHttpActionResult GetOrderAll(string api_key)
         {
             if (api_key == null || api_key != ApiResource.GetValueOf("API_KEY"))
                 return null;
 
-            return db.Poprit.ToViewModel();
+            List<PopritVM> poprit = db.Poprit.ToViewModel();
+
+            //var response = Request.CreateResponse<List<PopritVM>>(HttpStatusCode.ok)
+            return Ok<List<PopritVM>>(poprit);
         }
-
-        //public IEnumerable<PopritVM> Get(string api_key, bool is_list, string dealer)
-        //{
-        //    if (api_key == null || api_key != ApiResource.GetValueOf("API_KEY") || dealer == null)
-        //        return null;
-
-        //    return db.Poprit.Where(p => p.Popr.CreBy == dealer).ToViewModel();
-        //}
-
-        public IHttpActionResult Get(string api_key, int? id)
-        {
-            if (api_key == null || api_key != ApiResource.GetValueOf("API_KEY") || id == null)
-                return NotFound();
-
-            PopritVM poprit = db.Poprit.Where(p => p.Id == id).FirstOrDefault().ToViewModel();
-
-            if (poprit == null)
-                return NotFound();
-
-            return Ok(poprit);
-        }
-
-        public IHttpActionResult Put(string api_key, int? id)
-        {
-            Poprit poprit = db.Poprit.Where(p => p.Id == id).FirstOrDefault();
-            poprit.StkDes = poprit.StkDes + "...";
-
-            db.SaveChanges();
-            return Ok(poprit);
-        }
-
 
     }
 }

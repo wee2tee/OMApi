@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Crypto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_SOURCE\Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -173,6 +177,7 @@
     </Compile>
     <Compile Include="MiscClass\ApiResource.cs" />
     <Compile Include="MiscClass\Helper.cs" />
+    <Compile Include="Models\ApiAccessibilities.cs" />
     <Compile Include="Models\Arship.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
@@ -194,12 +199,14 @@
     <Compile Include="Models\Cart.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustVM.cs" />
     <Compile Include="Models\Dlvprofile.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\InternalUsers.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\InternalUsersVM.cs" />
     <Compile Include="Models\Istab.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>

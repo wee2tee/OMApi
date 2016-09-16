@@ -22,11 +22,13 @@ namespace OMApi.Models
         }
     
         public int Id { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public string FullName { get; set; }
-        public System.DateTime CreDate { get; set; }
         public string Department { get; set; }
+        public string Status { get; set; }
+        public System.DateTime CreDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Poprit> Poprit { get; set; }

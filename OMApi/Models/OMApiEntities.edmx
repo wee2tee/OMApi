@@ -167,12 +167,14 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="PasswordHash" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="100" />
-          <Property Name="CreDate" Type="datetime" Nullable="false" />
           <Property Name="Department" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CreDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Istab">
           <Key>
@@ -1609,12 +1611,14 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PasswordHash" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Department" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Poprit" Relationship="Self.FK_Poprit_IvBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Poprit" />
           <NavigationProperty Name="Poprit1" Relationship="Self.FK_Poprit_SoBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Poprit" />
         </EntityType>
@@ -3053,11 +3057,13 @@
             <EntityTypeMapping TypeName="OrderManagerModel.InternalUsers">
               <MappingFragment StoreEntitySet="InternalUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
                 <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreDate" ColumnName="CreDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
