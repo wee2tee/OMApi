@@ -6,6 +6,14 @@ using OMApi.Models;
 
 namespace OMApi.MiscClass
 {
+    public enum DEALER_TYPE : int
+    {
+        ไม่ระบุ = 0,
+        ตัวแทนจำหน่ายทั่วไป = 1,
+        ตัวแทนจำหน่ายรายใหญ่ = 2,
+        สำนักงานบัญชีไฮเทค = 3
+    }
+
     public static class Helper
     {
         public static List<PopritVM> ToViewModel(this IEnumerable<Poprit> source_list)
@@ -18,6 +26,7 @@ namespace OMApi.MiscClass
                     Id = item.Id,
                     PoNum = item.Popr.PoNum,
                     PoDat = item.Popr.PoDat,
+                    FlgVat = item.Popr.VatAmt > 0 ? "2" : "0",
                     DlvBy = item.Popr.Istab1.TypDesTh,
                     DlvDat1 = item.Popr.DlvDate1,
                     DlvDat2 = item.Popr.DlvDate2,
@@ -34,6 +43,8 @@ namespace OMApi.MiscClass
                     NetAmt = item.Popr.NetAmt,
                     CreBy = item.Popr.AspNetUsers2.FullName,
                     CreDate = item.Popr.CreDate,
+                    DealerCode = item.Popr.AspNetUsers2.DealerCode,
+                    DealerType = item.Popr.AspNetUsers2.DealerType,
                     //CustPreName = item.Popr.CustPreName,
                     //CustName = item.Popr.CustName,
                     //CustAddr01 = item.Popr.CustAddr01,
@@ -78,6 +89,7 @@ namespace OMApi.MiscClass
                 Id = item.Id,
                 PoNum = item.Popr.PoNum,
                 PoDat = item.Popr.PoDat,
+                FlgVat = item.Popr.VatAmt > 0 ? "2" : "0",
                 DlvBy = item.Popr.Istab1.TypDesTh,
                 DlvDat1 = item.Popr.DlvDate1,
                 DlvDat2 = item.Popr.DlvDate2,
@@ -94,6 +106,8 @@ namespace OMApi.MiscClass
                 NetAmt = item.Popr.NetAmt,
                 CreBy = item.Popr.AspNetUsers2.FullName,
                 CreDate = item.Popr.CreDate,
+                DealerCode = item.Popr.AspNetUsers2.DealerCode,
+                DealerType = item.Popr.AspNetUsers2.DealerType,
                 //CustPreName = item.Popr.CustPreName,
                 //CustName = item.Popr.CustName,
                 //CustAddr01 = item.Popr.CustAddr01,
