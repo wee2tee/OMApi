@@ -10,6 +10,15 @@ namespace OMApi.Models
         public int Id { get; set; }
         public string PoNum { get; set; }
         public DateTime PoDat { get; set; }
+        public string SoNum { get; set; }
+        public DateTime? SoDat { get; set; }
+        public int? SoBy { get; set; }
+        public string SoRemark { get; set; }
+        public string IvNum { get; set; }
+        public DateTime? IvDat { get; set; }
+        public int? IvBy { get; set; }
+        public string IvRemark { get; set; }
+        public string EmsTracking { get; set; }
         public string FlgVat { get; set; }
         public string DlvBy { get; set; }
         public DateTime? DlvDat1 { get; set; }
