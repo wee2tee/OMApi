@@ -22,12 +22,12 @@ namespace OMApi.Models
         public Nullable<bool> DiscPerc1 { get; set; }
         public Nullable<decimal> Disc2 { get; set; }
         public Nullable<bool> DiscPerc2 { get; set; }
-        public string CreBy { get; set; }
+        public int CreBy { get; set; }
         public System.DateTime CreDate { get; set; }
-        public string ChgBy { get; set; }
+        public Nullable<int> ChgBy { get; set; }
         public Nullable<System.DateTime> ChgDate { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
-        public virtual AspNetUsers AspNetUsers1 { get; set; }
+        public virtual InternalUsers InternalUsers { get; set; }
+        public virtual InternalUsers InternalUsers1 { get; set; }
     }
 }

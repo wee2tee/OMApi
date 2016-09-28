@@ -55,16 +55,16 @@ namespace OMApi.Models
         public Nullable<decimal> ReserveDec { get; set; }
         public string ReserveStr { get; set; }
         public Nullable<decimal> ComRate { get; set; }
-        public string CreBy { get; set; }
+        public int CreBy { get; set; }
         public System.DateTime CreDate { get; set; }
-        public string ChgBy { get; set; }
+        public Nullable<int> ChgBy { get; set; }
         public Nullable<System.DateTime> ChgDate { get; set; }
         public string Status { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
-        public virtual AspNetUsers AspNetUsers1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Cart { get; set; }
+        public virtual InternalUsers InternalUsers { get; set; }
+        public virtual InternalUsers InternalUsers1 { get; set; }
         public virtual Istab Istab { get; set; }
         public virtual Istab Istab1 { get; set; }
         public virtual Istab Istab2 { get; set; }

@@ -68,8 +68,6 @@ namespace OMApi.Models
         public virtual AspNetUsers AspNetUsers1 { get; set; }
         public virtual AspNetUsers AspNetUsers2 { get; set; }
         public virtual AspNetUsers AspNetUsers3 { get; set; }
-        public virtual Istab Istab { get; set; }
-        public virtual Istab Istab1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oesoit> Oesoit { get; set; }
         public virtual Popr Popr { get; set; }

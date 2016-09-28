@@ -167,9 +167,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DealersController.cs" />
+    <Compile Include="Controllers\DlvProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IstabController.cs" />
     <Compile Include="Controllers\PoprController.cs" />
     <Compile Include="Controllers\PopritController.cs" />
+    <Compile Include="Controllers\StpriController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,6 +197,9 @@
     <Compile Include="Models\AspNetUserLogins.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetUserRoles.cs">
+      <DependentUpon>OMApiEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AspNetUsers.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
@@ -200,9 +207,11 @@
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustVM.cs" />
+    <Compile Include="Models\DealerVM.cs" />
     <Compile Include="Models\Dlvprofile.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DlvProfileVM.cs" />
     <Compile Include="Models\InternalUsers.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
@@ -210,6 +219,7 @@
     <Compile Include="Models\Istab.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IstabVM.cs" />
     <Compile Include="Models\Msg.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
@@ -250,6 +260,7 @@
     <Compile Include="Models\Stpri.cs">
       <DependentUpon>OMApiEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StpriVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

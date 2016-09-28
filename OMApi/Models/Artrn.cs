@@ -67,8 +67,6 @@ namespace OMApi.Models
         public virtual AspNetUsers AspNetUsers1 { get; set; }
         public virtual AspNetUsers AspNetUsers2 { get; set; }
         public virtual AspNetUsers AspNetUsers3 { get; set; }
-        public virtual Istab Istab { get; set; }
-        public virtual Istab Istab1 { get; set; }
         public virtual Oeso Oeso { get; set; }
     }
 }

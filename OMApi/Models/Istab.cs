@@ -17,18 +17,13 @@ namespace OMApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Istab()
         {
-            this.Artrn = new HashSet<Artrn>();
-            this.Artrn1 = new HashSet<Artrn>();
-            this.AspNetUsers2 = new HashSet<AspNetUsers>();
             this.Dlvprofile = new HashSet<Dlvprofile>();
             this.Dlvprofile1 = new HashSet<Dlvprofile>();
-            this.Stmas = new HashSet<Stmas>();
-            this.Oeso = new HashSet<Oeso>();
-            this.Popr = new HashSet<Popr>();
             this.Stcrd = new HashSet<Stcrd>();
-            this.Oeso1 = new HashSet<Oeso>();
-            this.Popr1 = new HashSet<Popr>();
             this.Stcrd1 = new HashSet<Stcrd>();
+            this.Popr = new HashSet<Popr>();
+            this.Popr1 = new HashSet<Popr>();
+            this.Stmas = new HashSet<Stmas>();
             this.Stmas1 = new HashSet<Stmas>();
             this.Stmas2 = new HashSet<Stmas>();
             this.Stmas3 = new HashSet<Stmas>();
@@ -46,37 +41,27 @@ namespace OMApi.Models
         public string TypDesTh { get; set; }
         public string TypDesEn { get; set; }
         public Nullable<decimal> Rate { get; set; }
-        public string CreBy { get; set; }
+        public int CreBy { get; set; }
         public System.DateTime CreDate { get; set; }
-        public string ChgBy { get; set; }
+        public Nullable<int> ChgBy { get; set; }
         public Nullable<System.DateTime> ChgDate { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Artrn> Artrn { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Artrn> Artrn1 { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
-        public virtual AspNetUsers AspNetUsers1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUsers> AspNetUsers2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dlvprofile> Dlvprofile { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dlvprofile> Dlvprofile1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stmas> Stmas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oeso> Oeso { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Popr> Popr { get; set; }
+        public virtual InternalUsers InternalUsers { get; set; }
+        public virtual InternalUsers InternalUsers1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stcrd> Stcrd { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oeso> Oeso1 { get; set; }
+        public virtual ICollection<Stcrd> Stcrd1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Popr> Popr { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Popr> Popr1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stcrd> Stcrd1 { get; set; }
+        public virtual ICollection<Stmas> Stmas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stmas> Stmas1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

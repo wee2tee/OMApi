@@ -13,7 +13,7 @@ namespace OMApi.Controllers
 {
     public class UsersController : ApiController
     {
-        OMApiEntities db = new OMApiEntities();
+        private OMApiEntities db = new OMApiEntities();
 
         [AcceptVerbs("GET", "POST", "PUT", "DELETE")]
         public IHttpActionResult Get()

@@ -6,14 +6,6 @@ using OMApi.Models;
 
 namespace OMApi.MiscClass
 {
-    public enum DEALER_TYPE : int
-    {
-        ไม่ระบุ = 0,
-        ตัวแทนจำหน่ายทั่วไป = 1,
-        ตัวแทนจำหน่ายรายใหญ่ = 2,
-        สำนักงานบัญชีไฮเทค = 3
-    }
-
     public static class Helper
     {
         public static List<PopritVM> ToViewModel(this IEnumerable<Poprit> source_list)
@@ -198,6 +190,221 @@ namespace OMApi.MiscClass
             };
 
             return user;
+        }
+
+        public static List<DealerVM> ToViewModel(this IEnumerable<AspNetUsers> source_list)
+        {
+            List<DealerVM> dealers = new List<DealerVM>();
+            foreach (var item in source_list)
+            {
+                dealers.Add(new DealerVM
+                {
+                    Id = item.Id,
+                    DealerCode = item.DealerCode,
+                    DealerType = item.DealerType,
+                    UserName = item.UserName,
+                    SerNum = item.SerNum,
+                    PreName = item.PreName,
+                    FullName = item.FullName,
+                    TaxId = item.TaxId,
+                    Addr01 = item.Addr01,
+                    Addr02 = item.Addr02,
+                    Addr03 = item.Addr03,
+                    ZipCod = item.ZipCod,
+                    TelNum = item.TelNum,
+                    FaxNum = item.FaxNum,
+                    PriceCode = item.PriceCode,
+                    DlvProfile = item.DlvProfile,
+                    Disc = item.Disc,
+                    DiscPerc = item.DiscPerc,
+                    Disc2 = item.Disc2,
+                    DiscPerc2 = item.DiscPerc2,
+                    Status = item.Status,
+                    ChgBy = item.ChgBy,
+                    ChgDate = item.ChgDate
+                });
+            }
+
+            return dealers;
+        }
+
+        public static DealerVM ToViewModel(this AspNetUsers item)
+        {
+            if (item == null)
+                return null;
+
+            DealerVM dealer = new DealerVM()
+            {
+                Id = item.Id,
+                DealerCode = item.DealerCode,
+                DealerType = item.DealerType,
+                UserName = item.UserName,
+                SerNum = item.SerNum,
+                PreName = item.PreName,
+                FullName = item.FullName,
+                TaxId = item.TaxId,
+                Addr01 = item.Addr01,
+                Addr02 = item.Addr02,
+                Addr03 = item.Addr03,
+                ZipCod = item.ZipCod,
+                TelNum = item.TelNum,
+                FaxNum = item.FaxNum,
+                PriceCode = item.PriceCode,
+                DlvProfile = item.DlvProfile,
+                Disc = item.Disc,
+                DiscPerc = item.DiscPerc,
+                Disc2 = item.Disc2,
+                DiscPerc2 = item.DiscPerc2,
+                Status = item.Status,
+                ChgBy = item.ChgBy,
+                ChgDate = item.ChgDate
+            };
+
+            return dealer;
+        }
+
+        public static List<StpriVM> ToViewModel(this IEnumerable<Stpri> source_list)
+        {
+            List<StpriVM> stpri = new List<StpriVM>();
+            foreach (var item in source_list)
+            {
+                stpri.Add(new StpriVM
+                {
+                    Id = item.Id,
+                    PriceCode = item.PriceCode,
+                    Description = item.Description,
+                    TabPr = item.TabPr,
+                    Disc1 = item.Disc1,
+                    DiscPerc1 = item.DiscPerc1,
+                    Disc2 = item.Disc2,
+                    DiscPerc2 = item.DiscPerc2,
+                    RecBy = item.CreBy,
+                    RecDate = item.CreDate,
+                    ChgBy = item.ChgBy,
+                    ChgDate = item.ChgDate
+                });
+            }
+
+            return stpri;
+        }
+
+        public static StpriVM ToViewModel(this Stpri item)
+        {
+            if (item == null)
+                return null;
+
+            StpriVM stpri = new StpriVM()
+            {
+                Id = item.Id,
+                PriceCode = item.PriceCode,
+                Description = item.Description,
+                TabPr = item.TabPr,
+                Disc1 = item.Disc1,
+                DiscPerc1 = item.DiscPerc1,
+                Disc2 = item.Disc2,
+                DiscPerc2 = item.DiscPerc2,
+                RecBy = item.CreBy,
+                RecDate = item.CreDate,
+                ChgBy = item.ChgBy,
+                ChgDate = item.ChgDate
+            };
+
+            return stpri;
+        }
+
+        public static List<IstabVM> ToViewModel(this IEnumerable<Istab> source_list)
+        {
+            List<IstabVM> istab = new List<IstabVM>();
+            foreach (var item in source_list)
+            {
+                istab.Add(new IstabVM()
+                {
+                    Id = item.Id,
+                    TabTyp = item.TabTyp,
+                    TypCod = item.TypCod,
+                    AbbreviateEn = item.AbbreviateEn,
+                    AbbreviateTh = item.AbbreviateTh,
+                    TypDesEn = item.TypDesEn,
+                    TypDesTh = item.TypDesTh,
+                    Rate = item.Rate,
+                    CreBy = item.CreBy,
+                    CreDate = item.CreDate,
+                    ChgBy = item.ChgBy,
+                    ChgDate = item.ChgDate
+                });
+            }
+
+            return istab;
+        }
+
+        public static IstabVM ToViewModel(this Istab item)
+        {
+            if (item == null)
+                return null;
+
+            IstabVM istab = new IstabVM()
+            {
+                Id = item.Id,
+                TabTyp = item.TabTyp,
+                TypCod = item.TypCod,
+                AbbreviateEn = item.AbbreviateEn,
+                AbbreviateTh = item.AbbreviateTh,
+                TypDesEn = item.TypDesEn,
+                TypDesTh = item.TypDesTh,
+                Rate = item.Rate,
+                CreBy = item.CreBy,
+                CreDate = item.CreDate,
+                ChgBy = item.ChgBy,
+                ChgDate = item.ChgDate
+            };
+
+            return istab;
+        }
+
+        public static List<DlvProfileVM> ToDlvProfileViewModel(this IEnumerable<Istab> source_list)
+        {
+            List<DlvProfileVM> dlv_profile = new List<DlvProfileVM>();
+            foreach (var profile in source_list)
+            {
+                dlv_profile.Add(profile.ToDlvProfileViewModel());
+            }
+
+            return dlv_profile;
+        }
+
+        public static DlvProfileVM ToDlvProfileViewModel(this Istab item)
+        {
+            if (item == null)
+                return null;
+
+            OMApiEntities db = new OMApiEntities();
+
+            DlvProfileVM dlv_profile = new DlvProfileVM()
+            {
+                Id = item.Id,
+                TabTyp = item.TabTyp,
+                TypCod = item.TypCod,
+                AbbreviateEn = item.AbbreviateEn,
+                AbbreviateTh = item.AbbreviateTh,
+                TypDesEn = item.TypDesEn,
+                TypDesTh = item.TypDesTh,
+                CreBy = item.CreBy,
+                CreDate = item.CreDate,
+                ChgBy = item.ChgBy,
+                ChgDate = item.ChgDate,
+                dlv = new List<IstabVM>()
+            };
+            var profile_member = db.Dlvprofile.Where(p => p.ProfileId == item.Id);
+            foreach (var member in profile_member)
+            {
+                var dlv = db.Istab.Where(i => i.Id == member.DlvId).FirstOrDefault();
+                if (dlv == null)
+                    continue;
+
+                dlv_profile.dlv.Add(dlv.ToViewModel());
+            }
+
+            return dlv_profile;
         }
     }
 }

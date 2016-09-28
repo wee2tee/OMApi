@@ -188,9 +188,9 @@
           <Property Name="TypDesTh" Type="nvarchar" MaxLength="50" />
           <Property Name="TypDesEn" Type="nvarchar" MaxLength="50" />
           <Property Name="Rate" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreBy" Type="int" Nullable="false" />
           <Property Name="CreDate" Type="datetime" Nullable="false" />
-          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgBy" Type="int" />
           <Property Name="ChgDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Msg">
@@ -410,9 +410,9 @@
           <Property Name="ReserveDec" Type="decimal" Precision="18" Scale="4" />
           <Property Name="ReserveStr" Type="varchar" MaxLength="50" />
           <Property Name="ComRate" Type="decimal" Precision="6" Scale="4" />
-          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreBy" Type="int" Nullable="false" />
           <Property Name="CreDate" Type="datetime" Nullable="false" />
-          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgBy" Type="int" />
           <Property Name="ChgDate" Type="datetime" />
           <Property Name="Status" Type="char" MaxLength="1" />
         </EntityType>
@@ -428,9 +428,9 @@
           <Property Name="DiscPerc1" Type="bit" />
           <Property Name="Disc2" Type="decimal" Precision="18" Scale="4" />
           <Property Name="DiscPerc2" Type="bit" />
-          <Property Name="CreBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreBy" Type="int" Nullable="false" />
           <Property Name="CreDate" Type="datetime" Nullable="false" />
-          <Property Name="ChgBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="ChgBy" Type="int" />
           <Property Name="ChgDate" Type="datetime" />
         </EntityType>
         <Association Name="FK_ApproveBy_Artrn_AspNetUsers">
@@ -505,18 +505,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ChgBy_Istab_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Istab">
-              <PropertyRef Name="ChgBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ChgBy_Oeso_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
@@ -537,30 +525,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Popr">
-              <PropertyRef Name="ChgBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChgBy_Stmas_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stmas">
-              <PropertyRef Name="ChgBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChgBy_Stpri_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stpri">
               <PropertyRef Name="ChgBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -589,18 +553,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CquCod_Stmas_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stmas">
-              <PropertyRef Name="Cqucod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CreBy_Arship_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Arship" Type="Self.Arship" Multiplicity="*" />
@@ -625,18 +577,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CreBy_Istab_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Istab">
-              <PropertyRef Name="CreBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CreBy_Oeso_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
@@ -657,30 +597,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Popr">
-              <PropertyRef Name="CreBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CreBy_Stmas_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stmas">
-              <PropertyRef Name="CreBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CreBy_Stpri_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stpri">
               <PropertyRef Name="CreBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -710,20 +626,6 @@
             </Principal>
             <Dependent Role="AspNetUserLogins">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetRoles">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="RoleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -765,42 +667,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Department_Artrn_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Artrn">
-              <PropertyRef Name="Department" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Department_Oeso_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Oeso">
-              <PropertyRef Name="Department" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Department_Popr_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Popr">
-              <PropertyRef Name="Department" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Department_Stcrd_Istab">
           <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
           <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
@@ -810,42 +676,6 @@
             </Principal>
             <Dependent Role="Stcrd">
               <PropertyRef Name="Department" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DlvBy_Artrn_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
-          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Artrn">
-              <PropertyRef Name="DlvBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DlvBy_Oeso_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
-          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Oeso">
-              <PropertyRef Name="DlvBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DlvBy_Popr_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
-          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Popr">
-              <PropertyRef Name="Dlvby" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -861,15 +691,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DlvProfile_AspNetUsers_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        <Association Name="FK_Istab-ChgBy_InternalUsers-Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Istab">
+            <Principal Role="InternalUsers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="AspNetUsers">
-              <PropertyRef Name="DlvProfile" />
+            <Dependent Role="Istab">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Istab-CreBy_InternalUsers-Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="1" />
+          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Istab">
+              <PropertyRef Name="CreBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -933,6 +775,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Popr-Department_Istab-Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Popr-DlvBy_Istab-Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="Dlvby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PoprId_Poprit_Popr">
           <End Role="Popr" Type="Self.Popr" Multiplicity="1" />
           <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
@@ -981,18 +847,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PquCod_Stmas_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stmas">
-              <PropertyRef Name="Pqucod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ProfileId_Dlvprofile_Istab">
           <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
           <End Role="Dlvprofile" Type="Self.Dlvprofile" Multiplicity="*" />
@@ -1002,18 +856,6 @@
             </Principal>
             <Dependent Role="Dlvprofile">
               <PropertyRef Name="ProfileId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuCod_Stmas_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
-          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stmas">
-              <PropertyRef Name="Qucod" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1029,7 +871,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SquCod_Stmas_Istab">
+        <Association Name="FK_Stmas-ChgBy_InternalUsers-Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stmas-CquCod_Istab-Id">
           <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
           <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1037,19 +891,19 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Stmas">
-              <PropertyRef Name="Squcod" />
+              <PropertyRef Name="Cqucod" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StkGrp_Stmas_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+        <Association Name="FK_Stmas-CreBy_InternalUsers-Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="1" />
           <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Istab">
+            <Principal Role="InternalUsers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Stmas">
-              <PropertyRef Name="StkGrp" />
+              <PropertyRef Name="CreBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1098,6 +952,78 @@
             </Principal>
             <Dependent Role="Stcrd">
               <PropertyRef Name="StmasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stmas-PquCod_Istab-Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Pqucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stmas-QuCod_Istab-Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Qucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stmas-SquCod_Istab-Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Squcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stmas-StkGrp_Istab-Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="StkGrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stpri-ChgBy_InternalUsers-Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stpri">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stpri-CreBy_InternalUsers-Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="1" />
+          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stpri">
+              <PropertyRef Name="CreBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1193,10 +1119,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Artrn" EntitySet="Artrn" />
           </AssociationSet>
-          <AssociationSet Name="FK_ChgBy_Istab_AspNetUsers" Association="Self.FK_ChgBy_Istab_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Istab" EntitySet="Istab" />
-          </AssociationSet>
           <AssociationSet Name="FK_ChgBy_Oeso_AspNetUsers" Association="Self.FK_ChgBy_Oeso_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Oeso" EntitySet="Oeso" />
@@ -1204,14 +1126,6 @@
           <AssociationSet Name="FK_ChgBy_Popr_AspNetUsers" Association="Self.FK_ChgBy_Popr_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Popr" EntitySet="Popr" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChgBy_Stmas_AspNetUsers" Association="Self.FK_ChgBy_Stmas_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Stmas" EntitySet="Stmas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChgBy_Stpri_AspNetUsers" Association="Self.FK_ChgBy_Stpri_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Stpri" EntitySet="Stpri" />
           </AssociationSet>
           <AssociationSet Name="FK_ConvIvBy_Oeso_AspNetUsers" Association="Self.FK_ConvIvBy_Oeso_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1221,10 +1135,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Popr" EntitySet="Popr" />
           </AssociationSet>
-          <AssociationSet Name="FK_CquCod_Stmas_Istab" Association="Self.FK_CquCod_Stmas_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Stmas" EntitySet="Stmas" />
-          </AssociationSet>
           <AssociationSet Name="FK_CreBy_Arship_AspNetUsers" Association="Self.FK_CreBy_Arship_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Arship" EntitySet="Arship" />
@@ -1232,10 +1142,6 @@
           <AssociationSet Name="FK_CreBy_Artrn_AspNetUsers" Association="Self.FK_CreBy_Artrn_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Artrn" EntitySet="Artrn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CreBy_Istab_AspNetUsers" Association="Self.FK_CreBy_Istab_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Istab" EntitySet="Istab" />
           </AssociationSet>
           <AssociationSet Name="FK_CreBy_Oeso_AspNetUsers" Association="Self.FK_CreBy_Oeso_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1245,14 +1151,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Popr" EntitySet="Popr" />
           </AssociationSet>
-          <AssociationSet Name="FK_CreBy_Stmas_AspNetUsers" Association="Self.FK_CreBy_Stmas_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Stmas" EntitySet="Stmas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CreBy_Stpri_AspNetUsers" Association="Self.FK_CreBy_Stpri_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Stpri" EntitySet="Stpri" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -1260,10 +1158,6 @@
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1277,41 +1171,21 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Oeso" EntitySet="Oeso" />
           </AssociationSet>
-          <AssociationSet Name="FK_Department_Artrn_Istab" Association="Self.FK_Department_Artrn_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Artrn" EntitySet="Artrn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Department_Oeso_Istab" Association="Self.FK_Department_Oeso_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Oeso" EntitySet="Oeso" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Department_Popr_Istab" Association="Self.FK_Department_Popr_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Popr" EntitySet="Popr" />
-          </AssociationSet>
           <AssociationSet Name="FK_Department_Stcrd_Istab" Association="Self.FK_Department_Stcrd_Istab">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Stcrd" EntitySet="Stcrd" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DlvBy_Artrn_Istab" Association="Self.FK_DlvBy_Artrn_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Artrn" EntitySet="Artrn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DlvBy_Oeso_Istab" Association="Self.FK_DlvBy_Oeso_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Oeso" EntitySet="Oeso" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DlvBy_Popr_Istab" Association="Self.FK_DlvBy_Popr_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Popr" EntitySet="Popr" />
           </AssociationSet>
           <AssociationSet Name="FK_DlvId_Dlvprofile_Istab" Association="Self.FK_DlvId_Dlvprofile_Istab">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Dlvprofile" EntitySet="Dlvprofile" />
           </AssociationSet>
-          <AssociationSet Name="FK_DlvProfile_AspNetUsers_Istab" Association="Self.FK_DlvProfile_AspNetUsers_Istab">
+          <AssociationSet Name="FK_Istab-ChgBy_InternalUsers-Id" Association="Self.FK_Istab-ChgBy_InternalUsers-Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
             <End Role="Istab" EntitySet="Istab" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Istab-CreBy_InternalUsers-Id" Association="Self.FK_Istab-CreBy_InternalUsers-Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Istab" EntitySet="Istab" />
           </AssociationSet>
           <AssociationSet Name="FK_LocCod_Stcrd_Istab" Association="Self.FK_LocCod_Stcrd_Istab">
             <End Role="Istab" EntitySet="Istab" />
@@ -1333,6 +1207,14 @@
             <End Role="Oeso" EntitySet="Oeso" />
             <End Role="Oesoit" EntitySet="Oesoit" />
           </AssociationSet>
+          <AssociationSet Name="FK_Popr-Department_Istab-Id" Association="Self.FK_Popr-Department_Istab-Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Popr-DlvBy_Istab-Id" Association="Self.FK_Popr-DlvBy_Istab-Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
           <AssociationSet Name="FK_PoprId_Poprit_Popr" Association="Self.FK_PoprId_Poprit_Popr">
             <End Role="Popr" EntitySet="Popr" />
             <End Role="Poprit" EntitySet="Poprit" />
@@ -1349,28 +1231,24 @@
             <End Role="InternalUsers" EntitySet="InternalUsers" />
             <End Role="Poprit" EntitySet="Poprit" />
           </AssociationSet>
-          <AssociationSet Name="FK_PquCod_Stmas_Istab" Association="Self.FK_PquCod_Stmas_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Stmas" EntitySet="Stmas" />
-          </AssociationSet>
           <AssociationSet Name="FK_ProfileId_Dlvprofile_Istab" Association="Self.FK_ProfileId_Dlvprofile_Istab">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Dlvprofile" EntitySet="Dlvprofile" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuCod_Stmas_Istab" Association="Self.FK_QuCod_Stmas_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
           <AssociationSet Name="FK_RefPo_Oeso_Popr" Association="Self.FK_RefPo_Oeso_Popr">
             <End Role="Popr" EntitySet="Popr" />
             <End Role="Oeso" EntitySet="Oeso" />
           </AssociationSet>
-          <AssociationSet Name="FK_SquCod_Stmas_Istab" Association="Self.FK_SquCod_Stmas_Istab">
+          <AssociationSet Name="FK_Stmas-ChgBy_InternalUsers-Id" Association="Self.FK_Stmas-ChgBy_InternalUsers-Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stmas-CquCod_Istab-Id" Association="Self.FK_Stmas-CquCod_Istab-Id">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
-          <AssociationSet Name="FK_StkGrp_Stmas_Istab" Association="Self.FK_StkGrp_Stmas_Istab">
-            <End Role="Istab" EntitySet="Istab" />
+          <AssociationSet Name="FK_Stmas-CreBy_InternalUsers-Id" Association="Self.FK_Stmas-CreBy_InternalUsers-Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
             <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
           <AssociationSet Name="FK_StmasId_Cart_Stmas" Association="Self.FK_StmasId_Cart_Stmas">
@@ -1388,6 +1266,30 @@
           <AssociationSet Name="FK_StmasId_Stcrd_Stmas" Association="Self.FK_StmasId_Stcrd_Stmas">
             <End Role="Stmas" EntitySet="Stmas" />
             <End Role="Stcrd" EntitySet="Stcrd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stmas-PquCod_Istab-Id" Association="Self.FK_Stmas-PquCod_Istab-Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stmas-QuCod_Istab-Id" Association="Self.FK_Stmas-QuCod_Istab-Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stmas-SquCod_Istab-Id" Association="Self.FK_Stmas-SquCod_Istab-Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stmas-StkGrp_Istab-Id" Association="Self.FK_Stmas-StkGrp_Istab-Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stpri-ChgBy_InternalUsers-Id" Association="Self.FK_Stpri-ChgBy_InternalUsers-Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Stpri" EntitySet="Stpri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stpri-CreBy_InternalUsers-Id" Association="Self.FK_Stpri-CreBy_InternalUsers-Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Stpri" EntitySet="Stpri" />
           </AssociationSet>
           <AssociationSet Name="FK_TquCod_Oesoit_Istab" Association="Self.FK_TquCod_Oesoit_Istab">
             <End Role="Istab" EntitySet="Istab" />
@@ -1481,8 +1383,6 @@
           <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_ChgBy_Artrn_AspNetUsers" FromRole="Artrn" ToRole="AspNetUsers" />
           <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_CreBy_Artrn_AspNetUsers" FromRole="Artrn" ToRole="AspNetUsers" />
           <NavigationProperty Name="AspNetUsers3" Relationship="Self.FK_DealerId_Artrn_AspNetUsers" FromRole="Artrn" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Istab" Relationship="Self.FK_Department_Artrn_Istab" FromRole="Artrn" ToRole="Istab" />
-          <NavigationProperty Name="Istab1" Relationship="Self.FK_DlvBy_Artrn_Istab" FromRole="Artrn" ToRole="Istab" />
           <NavigationProperty Name="Oeso" Relationship="Self.FK_OesoId_Artrn_Oeso" FromRole="Artrn" ToRole="Oeso" />
         </EntityType>
         <EntityType Name="AspNetRoles">
@@ -1491,7 +1391,6 @@
           </Key>
           <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="AspNetUserClaims">
           <Key>
@@ -1513,6 +1412,15 @@
           <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRoles" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="AspNetUsers">
           <Key>
@@ -1562,26 +1470,19 @@
           <NavigationProperty Name="Artrn3" Relationship="Self.FK_DealerId_Artrn_AspNetUsers" FromRole="AspNetUsers" ToRole="Artrn" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserRoles" />
           <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_AspNetUsers_AspNetUsers" FromRole="AspNetUsers" ToRole="AspNetUsers1" />
           <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_AspNetUsers_AspNetUsers" FromRole="AspNetUsers1" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Istab" Relationship="Self.FK_ChgBy_Istab_AspNetUsers" FromRole="AspNetUsers" ToRole="Istab" />
           <NavigationProperty Name="Oeso" Relationship="Self.FK_ChgBy_Oeso_AspNetUsers" FromRole="AspNetUsers" ToRole="Oeso" />
           <NavigationProperty Name="Popr" Relationship="Self.FK_ChgBy_Popr_AspNetUsers" FromRole="AspNetUsers" ToRole="Popr" />
-          <NavigationProperty Name="Stmas" Relationship="Self.FK_ChgBy_Stmas_AspNetUsers" FromRole="AspNetUsers" ToRole="Stmas" />
-          <NavigationProperty Name="Stpri" Relationship="Self.FK_ChgBy_Stpri_AspNetUsers" FromRole="AspNetUsers" ToRole="Stpri" />
           <NavigationProperty Name="Oeso1" Relationship="Self.FK_ConvIvBy_Oeso_AspNetUsers" FromRole="AspNetUsers" ToRole="Oeso" />
           <NavigationProperty Name="Popr1" Relationship="Self.FK_ConvSoBy_Popr_AspNetUsers" FromRole="AspNetUsers" ToRole="Popr" />
-          <NavigationProperty Name="Istab1" Relationship="Self.FK_CreBy_Istab_AspNetUsers" FromRole="AspNetUsers" ToRole="Istab" />
           <NavigationProperty Name="Oeso2" Relationship="Self.FK_CreBy_Oeso_AspNetUsers" FromRole="AspNetUsers" ToRole="Oeso" />
           <NavigationProperty Name="Popr2" Relationship="Self.FK_CreBy_Popr_AspNetUsers" FromRole="AspNetUsers" ToRole="Popr" />
-          <NavigationProperty Name="Stmas1" Relationship="Self.FK_CreBy_Stmas_AspNetUsers" FromRole="AspNetUsers" ToRole="Stmas" />
-          <NavigationProperty Name="Stpri1" Relationship="Self.FK_CreBy_Stpri_AspNetUsers" FromRole="AspNetUsers" ToRole="Stpri" />
           <NavigationProperty Name="Oeso3" Relationship="Self.FK_DealerId_Oeso_AspNetUsers" FromRole="AspNetUsers" ToRole="Oeso" />
-          <NavigationProperty Name="Istab2" Relationship="Self.FK_DlvProfile_AspNetUsers_Istab" FromRole="AspNetUsers" ToRole="Istab" />
           <NavigationProperty Name="Msg" Relationship="Self.FK_MsgFrom_Msg_AspNetUsers" FromRole="AspNetUsers" ToRole="Msg" />
           <NavigationProperty Name="Msg1" Relationship="Self.FK_MsgTo_Msg_AspNetUsers" FromRole="AspNetUsers" ToRole="Msg" />
           <NavigationProperty Name="Cart" Relationship="Self.FK_UserId_Cart_AspNetUsers" FromRole="AspNetUsers" ToRole="Cart" />
-          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
         <EntityType Name="Cart">
           <Key>
@@ -1619,8 +1520,14 @@
           <Property Name="Department" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_Istab_ChgBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_Istab_CreBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Istab" />
           <NavigationProperty Name="Poprit" Relationship="Self.FK_Poprit_IvBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Poprit" />
           <NavigationProperty Name="Poprit1" Relationship="Self.FK_Poprit_SoBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Poprit" />
+          <NavigationProperty Name="Stmas" Relationship="Self.FK_Stmas_ChgBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Stmas" />
+          <NavigationProperty Name="Stmas1" Relationship="Self.FK_Stmas_CreBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Stmas" />
+          <NavigationProperty Name="Stpri" Relationship="Self.FK_Stpri_ChgBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Stpri" />
+          <NavigationProperty Name="Stpri1" Relationship="Self.FK_Stpri_CreBy_InternalUsers_Id" FromRole="InternalUsers" ToRole="Stpri" />
         </EntityType>
         <EntityType Name="Istab">
           <Key>
@@ -1634,28 +1541,23 @@
           <Property Name="TypDesTh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TypDesEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Rate" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreBy" Type="Int32" Nullable="false" />
           <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgBy" Type="Int32" />
           <Property Name="ChgDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Artrn" Relationship="Self.FK_Department_Artrn_Istab" FromRole="Istab" ToRole="Artrn" />
-          <NavigationProperty Name="Artrn1" Relationship="Self.FK_DlvBy_Artrn_Istab" FromRole="Istab" ToRole="Artrn" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Istab_AspNetUsers" FromRole="Istab" ToRole="AspNetUsers" />
-          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_CreBy_Istab_AspNetUsers" FromRole="Istab" ToRole="AspNetUsers" />
-          <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_DlvProfile_AspNetUsers_Istab" FromRole="Istab" ToRole="AspNetUsers" />
           <NavigationProperty Name="Dlvprofile" Relationship="Self.FK_DlvId_Dlvprofile_Istab" FromRole="Istab" ToRole="Dlvprofile" />
           <NavigationProperty Name="Dlvprofile1" Relationship="Self.FK_ProfileId_Dlvprofile_Istab" FromRole="Istab" ToRole="Dlvprofile" />
-          <NavigationProperty Name="Stmas" Relationship="Self.FK_CquCod_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
-          <NavigationProperty Name="Oeso" Relationship="Self.FK_Department_Oeso_Istab" FromRole="Istab" ToRole="Oeso" />
-          <NavigationProperty Name="Popr" Relationship="Self.FK_Department_Popr_Istab" FromRole="Istab" ToRole="Popr" />
+          <NavigationProperty Name="InternalUsers" Relationship="Self.FK_Istab_ChgBy_InternalUsers_Id" FromRole="Istab" ToRole="InternalUsers" />
+          <NavigationProperty Name="InternalUsers1" Relationship="Self.FK_Istab_CreBy_InternalUsers_Id" FromRole="Istab" ToRole="InternalUsers" />
           <NavigationProperty Name="Stcrd" Relationship="Self.FK_Department_Stcrd_Istab" FromRole="Istab" ToRole="Stcrd" />
-          <NavigationProperty Name="Oeso1" Relationship="Self.FK_DlvBy_Oeso_Istab" FromRole="Istab" ToRole="Oeso" />
-          <NavigationProperty Name="Popr1" Relationship="Self.FK_DlvBy_Popr_Istab" FromRole="Istab" ToRole="Popr" />
           <NavigationProperty Name="Stcrd1" Relationship="Self.FK_LocCod_Stcrd_Istab" FromRole="Istab" ToRole="Stcrd" />
-          <NavigationProperty Name="Stmas1" Relationship="Self.FK_PquCod_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
-          <NavigationProperty Name="Stmas2" Relationship="Self.FK_QuCod_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
-          <NavigationProperty Name="Stmas3" Relationship="Self.FK_SquCod_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
-          <NavigationProperty Name="Stmas4" Relationship="Self.FK_StkGrp_Stmas_Istab" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Popr" Relationship="Self.FK_Popr_Department_Istab_Id" FromRole="Istab" ToRole="Popr" />
+          <NavigationProperty Name="Popr1" Relationship="Self.FK_Popr_DlvBy_Istab_Id" FromRole="Istab" ToRole="Popr" />
+          <NavigationProperty Name="Stmas" Relationship="Self.FK_Stmas_CquCod_Istab_Id" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Stmas1" Relationship="Self.FK_Stmas_PquCod_Istab_Id" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Stmas2" Relationship="Self.FK_Stmas_QuCod_Istab_Id" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Stmas3" Relationship="Self.FK_Stmas_SquCod_Istab_Id" FromRole="Istab" ToRole="Stmas" />
+          <NavigationProperty Name="Stmas4" Relationship="Self.FK_Stmas_StkGrp_Istab_Id" FromRole="Istab" ToRole="Stmas" />
           <NavigationProperty Name="Oesoit" Relationship="Self.FK_TquCod_Oesoit_Istab" FromRole="Istab" ToRole="Oesoit" />
           <NavigationProperty Name="Poprit" Relationship="Self.FK_TquCod_Poprit_Istab" FromRole="Istab" ToRole="Poprit" />
           <NavigationProperty Name="Stcrd2" Relationship="Self.FK_TquCod_Stcrd_Istab" FromRole="Istab" ToRole="Stcrd" />
@@ -1724,8 +1626,6 @@
           <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_ConvIvBy_Oeso_AspNetUsers" FromRole="Oeso" ToRole="AspNetUsers" />
           <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_CreBy_Oeso_AspNetUsers" FromRole="Oeso" ToRole="AspNetUsers" />
           <NavigationProperty Name="AspNetUsers3" Relationship="Self.FK_DealerId_Oeso_AspNetUsers" FromRole="Oeso" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Istab" Relationship="Self.FK_Department_Oeso_Istab" FromRole="Oeso" ToRole="Istab" />
-          <NavigationProperty Name="Istab1" Relationship="Self.FK_DlvBy_Oeso_Istab" FromRole="Oeso" ToRole="Istab" />
           <NavigationProperty Name="Oesoit" Relationship="Self.FK_OesoId_Oesoit_Oeso" FromRole="Oeso" ToRole="Oesoit" />
           <NavigationProperty Name="Popr" Relationship="Self.FK_RefPo_Oeso_Popr" FromRole="Oeso" ToRole="Popr" />
         </EntityType>
@@ -1799,8 +1699,8 @@
           <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Popr_AspNetUsers" FromRole="Popr" ToRole="AspNetUsers" />
           <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_ConvSoBy_Popr_AspNetUsers" FromRole="Popr" ToRole="AspNetUsers" />
           <NavigationProperty Name="AspNetUsers2" Relationship="Self.FK_CreBy_Popr_AspNetUsers" FromRole="Popr" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Istab" Relationship="Self.FK_Department_Popr_Istab" FromRole="Popr" ToRole="Istab" />
-          <NavigationProperty Name="Istab1" Relationship="Self.FK_DlvBy_Popr_Istab" FromRole="Popr" ToRole="Istab" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_Popr_Department_Istab_Id" FromRole="Popr" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_Popr_DlvBy_Istab_Id" FromRole="Popr" ToRole="Istab" />
           <NavigationProperty Name="Oeso" Relationship="Self.FK_RefPo_Oeso_Popr" FromRole="Popr" ToRole="Oeso" />
           <NavigationProperty Name="Poprit" Relationship="Self.FK_PoprId_Poprit_Popr" FromRole="Popr" ToRole="Poprit" />
         </EntityType>
@@ -1911,19 +1811,19 @@
           <Property Name="ReserveDec" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="ReserveStr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ComRate" Type="Decimal" Precision="6" Scale="4" />
-          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreBy" Type="Int32" Nullable="false" />
           <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgBy" Type="Int32" />
           <Property Name="ChgDate" Type="DateTime" Precision="3" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Stmas_AspNetUsers" FromRole="Stmas" ToRole="AspNetUsers" />
-          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_CreBy_Stmas_AspNetUsers" FromRole="Stmas" ToRole="AspNetUsers" />
           <NavigationProperty Name="Cart" Relationship="Self.FK_StmasId_Cart_Stmas" FromRole="Stmas" ToRole="Cart" />
-          <NavigationProperty Name="Istab" Relationship="Self.FK_CquCod_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
-          <NavigationProperty Name="Istab1" Relationship="Self.FK_PquCod_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
-          <NavigationProperty Name="Istab2" Relationship="Self.FK_QuCod_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
-          <NavigationProperty Name="Istab3" Relationship="Self.FK_SquCod_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
-          <NavigationProperty Name="Istab4" Relationship="Self.FK_StkGrp_Stmas_Istab" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="InternalUsers" Relationship="Self.FK_Stmas_ChgBy_InternalUsers_Id" FromRole="Stmas" ToRole="InternalUsers" />
+          <NavigationProperty Name="InternalUsers1" Relationship="Self.FK_Stmas_CreBy_InternalUsers_Id" FromRole="Stmas" ToRole="InternalUsers" />
+          <NavigationProperty Name="Istab" Relationship="Self.FK_Stmas_CquCod_Istab_Id" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Istab1" Relationship="Self.FK_Stmas_PquCod_Istab_Id" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Istab2" Relationship="Self.FK_Stmas_QuCod_Istab_Id" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Istab3" Relationship="Self.FK_Stmas_SquCod_Istab_Id" FromRole="Stmas" ToRole="Istab" />
+          <NavigationProperty Name="Istab4" Relationship="Self.FK_Stmas_StkGrp_Istab_Id" FromRole="Stmas" ToRole="Istab" />
           <NavigationProperty Name="Oesoit" Relationship="Self.FK_StmasId_Oesoit_Stmas" FromRole="Stmas" ToRole="Oesoit" />
           <NavigationProperty Name="Poprit" Relationship="Self.FK_StmasId_Poprit_Stmas" FromRole="Stmas" ToRole="Poprit" />
           <NavigationProperty Name="Stcrd" Relationship="Self.FK_StmasId_Stcrd_Stmas" FromRole="Stmas" ToRole="Stcrd" />
@@ -1940,12 +1840,12 @@
           <Property Name="DiscPerc1" Type="Boolean" />
           <Property Name="Disc2" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="DiscPerc2" Type="Boolean" />
-          <Property Name="CreBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreBy" Type="Int32" Nullable="false" />
           <Property Name="CreDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ChgBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ChgBy" Type="Int32" />
           <Property Name="ChgDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_ChgBy_Stpri_AspNetUsers" FromRole="Stpri" ToRole="AspNetUsers" />
-          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_CreBy_Stpri_AspNetUsers" FromRole="Stpri" ToRole="AspNetUsers" />
+          <NavigationProperty Name="InternalUsers" Relationship="Self.FK_Stpri_ChgBy_InternalUsers_Id" FromRole="Stpri" ToRole="InternalUsers" />
+          <NavigationProperty Name="InternalUsers1" Relationship="Self.FK_Stpri_CreBy_InternalUsers_Id" FromRole="Stpri" ToRole="InternalUsers" />
         </EntityType>
         <Association Name="FK_ArshipId_Popr_Arship">
           <End Role="Arship" Type="Self.Arship" Multiplicity="0..1" />
@@ -2043,30 +1943,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Department_Artrn_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Artrn">
-              <PropertyRef Name="Department" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DlvBy_Artrn_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
-          <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Artrn">
-              <PropertyRef Name="DlvBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OesoId_Artrn_Oeso">
           <End Role="Oeso" Type="Self.Oeso" Multiplicity="0..1" />
           <End Role="Artrn" Type="Self.Artrn" Multiplicity="*" />
@@ -2107,6 +1983,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AspNetUsers_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="*" />
@@ -2115,18 +2005,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="AspNetUsers1">
-              <PropertyRef Name="ChgBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChgBy_Istab_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Istab">
               <PropertyRef Name="ChgBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -2155,30 +2033,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ChgBy_Stmas_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stmas">
-              <PropertyRef Name="ChgBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChgBy_Stpri_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stpri">
-              <PropertyRef Name="ChgBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ConvIvBy_Oeso_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
@@ -2200,18 +2054,6 @@
             </Principal>
             <Dependent Role="Popr">
               <PropertyRef Name="ConvSoBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CreBy_Istab_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Istab">
-              <PropertyRef Name="CreBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2239,30 +2081,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CreBy_Stmas_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stmas">
-              <PropertyRef Name="CreBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CreBy_Stpri_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Stpri">
-              <PropertyRef Name="CreBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_DealerId_Oeso_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
@@ -2272,18 +2090,6 @@
             </Principal>
             <Dependent Role="Oeso">
               <PropertyRef Name="DealerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DlvProfile_AspNetUsers_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUsers">
-              <PropertyRef Name="DlvProfile" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2359,6 +2165,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Istab_ChgBy_InternalUsers_Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Istab">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Istab_CreBy_InternalUsers_Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="1" />
+          <End Role="Istab" Type="Self.Istab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Istab">
+              <PropertyRef Name="CreBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Poprit_IvBy_InternalUsers_Id">
           <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
           <End Role="Poprit" Type="Self.Poprit" Multiplicity="*" />
@@ -2383,39 +2213,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CquCod_Stmas_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+        <Association Name="FK_Stmas_ChgBy_InternalUsers_Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
           <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Istab">
+            <Principal Role="InternalUsers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Stmas">
-              <PropertyRef Name="Cqucod" />
+              <PropertyRef Name="ChgBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Department_Oeso_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
+        <Association Name="FK_Stmas_CreBy_InternalUsers_Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Istab">
+            <Principal Role="InternalUsers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Oeso">
-              <PropertyRef Name="Department" />
+            <Dependent Role="Stmas">
+              <PropertyRef Name="CreBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Department_Popr_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
-          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+        <Association Name="FK_Stpri_ChgBy_InternalUsers_Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="0..1" />
+          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Istab">
+            <Principal Role="InternalUsers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Popr">
-              <PropertyRef Name="Department" />
+            <Dependent Role="Stpri">
+              <PropertyRef Name="ChgBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stpri_CreBy_InternalUsers_Id">
+          <End Role="InternalUsers" Type="Self.InternalUsers" Multiplicity="1" />
+          <End Role="Stpri" Type="Self.Stpri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stpri">
+              <PropertyRef Name="CreBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2431,30 +2273,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DlvBy_Oeso_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
-          <End Role="Oeso" Type="Self.Oeso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Oeso">
-              <PropertyRef Name="DlvBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DlvBy_Popr_Istab">
-          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
-          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Istab">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Popr">
-              <PropertyRef Name="Dlvby" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LocCod_Stcrd_Istab">
           <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
           <End Role="Stcrd" Type="Self.Stcrd" Multiplicity="*" />
@@ -2467,7 +2285,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PquCod_Stmas_Istab">
+        <Association Name="FK_Popr_Department_Istab_Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Popr_DlvBy_Istab_Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
+          <End Role="Popr" Type="Self.Popr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Popr">
+              <PropertyRef Name="Dlvby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stmas_CquCod_Istab_Id">
+          <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
+          <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Istab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stmas">
+              <PropertyRef Name="Cqucod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stmas_PquCod_Istab_Id">
           <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
           <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2479,7 +2333,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuCod_Stmas_Istab">
+        <Association Name="FK_Stmas_QuCod_Istab_Id">
           <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
           <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2491,7 +2345,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SquCod_Stmas_Istab">
+        <Association Name="FK_Stmas_SquCod_Istab_Id">
           <End Role="Istab" Type="Self.Istab" Multiplicity="0..1" />
           <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2503,7 +2357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StkGrp_Stmas_Istab">
+        <Association Name="FK_Stmas_StkGrp_Istab_Id">
           <End Role="Istab" Type="Self.Istab" Multiplicity="1" />
           <End Role="Stmas" Type="Self.Stmas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2635,16 +2489,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="AspNetUserRoles">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="OMApiEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Arship" EntityType="Self.Arship" />
           <EntitySet Name="Artrn" EntityType="Self.Artrn" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
           <EntitySet Name="Cart" EntityType="Self.Cart" />
           <EntitySet Name="Dlvprofile" EntityType="Self.Dlvprofile" />
@@ -2690,14 +2541,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Artrn" EntitySet="Artrn" />
           </AssociationSet>
-          <AssociationSet Name="FK_Department_Artrn_Istab" Association="Self.FK_Department_Artrn_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Artrn" EntitySet="Artrn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DlvBy_Artrn_Istab" Association="Self.FK_DlvBy_Artrn_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Artrn" EntitySet="Artrn" />
-          </AssociationSet>
           <AssociationSet Name="FK_OesoId_Artrn_Oeso" Association="Self.FK_OesoId_Artrn_Oeso">
             <End Role="Oeso" EntitySet="Oeso" />
             <End Role="Artrn" EntitySet="Artrn" />
@@ -2710,13 +2553,13 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
           <AssociationSet Name="FK_AspNetUsers_AspNetUsers" Association="Self.FK_AspNetUsers_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChgBy_Istab_AspNetUsers" Association="Self.FK_ChgBy_Istab_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Istab" EntitySet="Istab" />
           </AssociationSet>
           <AssociationSet Name="FK_ChgBy_Oeso_AspNetUsers" Association="Self.FK_ChgBy_Oeso_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -2726,14 +2569,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Popr" EntitySet="Popr" />
           </AssociationSet>
-          <AssociationSet Name="FK_ChgBy_Stmas_AspNetUsers" Association="Self.FK_ChgBy_Stmas_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Stmas" EntitySet="Stmas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChgBy_Stpri_AspNetUsers" Association="Self.FK_ChgBy_Stpri_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Stpri" EntitySet="Stpri" />
-          </AssociationSet>
           <AssociationSet Name="FK_ConvIvBy_Oeso_AspNetUsers" Association="Self.FK_ConvIvBy_Oeso_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Oeso" EntitySet="Oeso" />
@@ -2741,10 +2576,6 @@
           <AssociationSet Name="FK_ConvSoBy_Popr_AspNetUsers" Association="Self.FK_ConvSoBy_Popr_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Popr" EntitySet="Popr" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CreBy_Istab_AspNetUsers" Association="Self.FK_CreBy_Istab_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Istab" EntitySet="Istab" />
           </AssociationSet>
           <AssociationSet Name="FK_CreBy_Oeso_AspNetUsers" Association="Self.FK_CreBy_Oeso_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -2754,21 +2585,9 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Popr" EntitySet="Popr" />
           </AssociationSet>
-          <AssociationSet Name="FK_CreBy_Stmas_AspNetUsers" Association="Self.FK_CreBy_Stmas_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Stmas" EntitySet="Stmas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CreBy_Stpri_AspNetUsers" Association="Self.FK_CreBy_Stpri_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Stpri" EntitySet="Stpri" />
-          </AssociationSet>
           <AssociationSet Name="FK_DealerId_Oeso_AspNetUsers" Association="Self.FK_DealerId_Oeso_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Oeso" EntitySet="Oeso" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DlvProfile_AspNetUsers_Istab" Association="Self.FK_DlvProfile_AspNetUsers_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <AssociationSet Name="FK_MsgFrom_Msg_AspNetUsers" Association="Self.FK_MsgFrom_Msg_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -2794,6 +2613,14 @@
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Dlvprofile" EntitySet="Dlvprofile" />
           </AssociationSet>
+          <AssociationSet Name="FK_Istab_ChgBy_InternalUsers_Id" Association="Self.FK_Istab_ChgBy_InternalUsers_Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Istab" EntitySet="Istab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Istab_CreBy_InternalUsers_Id" Association="Self.FK_Istab_CreBy_InternalUsers_Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Istab" EntitySet="Istab" />
+          </AssociationSet>
           <AssociationSet Name="FK_Poprit_IvBy_InternalUsers_Id" Association="Self.FK_Poprit_IvBy_InternalUsers_Id">
             <End Role="InternalUsers" EntitySet="InternalUsers" />
             <End Role="Poprit" EntitySet="Poprit" />
@@ -2802,47 +2629,55 @@
             <End Role="InternalUsers" EntitySet="InternalUsers" />
             <End Role="Poprit" EntitySet="Poprit" />
           </AssociationSet>
-          <AssociationSet Name="FK_CquCod_Stmas_Istab" Association="Self.FK_CquCod_Stmas_Istab">
-            <End Role="Istab" EntitySet="Istab" />
+          <AssociationSet Name="FK_Stmas_ChgBy_InternalUsers_Id" Association="Self.FK_Stmas_ChgBy_InternalUsers_Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
             <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
-          <AssociationSet Name="FK_Department_Oeso_Istab" Association="Self.FK_Department_Oeso_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Oeso" EntitySet="Oeso" />
+          <AssociationSet Name="FK_Stmas_CreBy_InternalUsers_Id" Association="Self.FK_Stmas_CreBy_InternalUsers_Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
-          <AssociationSet Name="FK_Department_Popr_Istab" Association="Self.FK_Department_Popr_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Popr" EntitySet="Popr" />
+          <AssociationSet Name="FK_Stpri_ChgBy_InternalUsers_Id" Association="Self.FK_Stpri_ChgBy_InternalUsers_Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Stpri" EntitySet="Stpri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stpri_CreBy_InternalUsers_Id" Association="Self.FK_Stpri_CreBy_InternalUsers_Id">
+            <End Role="InternalUsers" EntitySet="InternalUsers" />
+            <End Role="Stpri" EntitySet="Stpri" />
           </AssociationSet>
           <AssociationSet Name="FK_Department_Stcrd_Istab" Association="Self.FK_Department_Stcrd_Istab">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Stcrd" EntitySet="Stcrd" />
           </AssociationSet>
-          <AssociationSet Name="FK_DlvBy_Oeso_Istab" Association="Self.FK_DlvBy_Oeso_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Oeso" EntitySet="Oeso" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DlvBy_Popr_Istab" Association="Self.FK_DlvBy_Popr_Istab">
-            <End Role="Istab" EntitySet="Istab" />
-            <End Role="Popr" EntitySet="Popr" />
-          </AssociationSet>
           <AssociationSet Name="FK_LocCod_Stcrd_Istab" Association="Self.FK_LocCod_Stcrd_Istab">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Stcrd" EntitySet="Stcrd" />
           </AssociationSet>
-          <AssociationSet Name="FK_PquCod_Stmas_Istab" Association="Self.FK_PquCod_Stmas_Istab">
+          <AssociationSet Name="FK_Popr_Department_Istab_Id" Association="Self.FK_Popr_Department_Istab_Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Popr_DlvBy_Istab_Id" Association="Self.FK_Popr_DlvBy_Istab_Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Popr" EntitySet="Popr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stmas_CquCod_Istab_Id" Association="Self.FK_Stmas_CquCod_Istab_Id">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuCod_Stmas_Istab" Association="Self.FK_QuCod_Stmas_Istab">
+          <AssociationSet Name="FK_Stmas_PquCod_Istab_Id" Association="Self.FK_Stmas_PquCod_Istab_Id">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
-          <AssociationSet Name="FK_SquCod_Stmas_Istab" Association="Self.FK_SquCod_Stmas_Istab">
+          <AssociationSet Name="FK_Stmas_QuCod_Istab_Id" Association="Self.FK_Stmas_QuCod_Istab_Id">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
-          <AssociationSet Name="FK_StkGrp_Stmas_Istab" Association="Self.FK_StkGrp_Stmas_Istab">
+          <AssociationSet Name="FK_Stmas_SquCod_Istab_Id" Association="Self.FK_Stmas_SquCod_Istab_Id">
+            <End Role="Istab" EntitySet="Istab" />
+            <End Role="Stmas" EntitySet="Stmas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stmas_StkGrp_Istab_Id" Association="Self.FK_Stmas_StkGrp_Istab_Id">
             <End Role="Istab" EntitySet="Istab" />
             <End Role="Stmas" EntitySet="Stmas" />
           </AssociationSet>
@@ -2885,10 +2720,6 @@
           <AssociationSet Name="FK_StmasId_Stcrd_Stmas" Association="Self.FK_StmasId_Stcrd_Stmas">
             <End Role="Stmas" EntitySet="Stmas" />
             <End Role="Stcrd" EntitySet="Stcrd" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -2986,6 +2817,14 @@
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
                 <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserRoles">
+            <EntityTypeMapping TypeName="OrderManagerModel.AspNetUserRoles">
+              <MappingFragment StoreEntitySet="AspNetUserRoles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3333,14 +3172,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="OrderManagerModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetRoles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-            <EndProperty Name="AspNetUsers">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
