@@ -24,5 +24,20 @@ namespace OMApi.Controllers
 
             return Ok<List<StpriVM>>(stpri);
         }
+
+        [AcceptVerbs("GET")]
+        [ActionName("GetStpriAt")]
+        public HttpResponseMessage GetStpriAt(string api_key, int? id)
+        {
+            if (api_key == null || api_key != ApiResource.GetValueOf("API_KEY") || id == null)
+                return null;
+
+            StpriVM stpri = this.db.Stpri.Where(s => s.Id == id).FirstOrDefault().ToViewModel();
+
+            if (stpri == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+
+            return Request.CreateResponse<StpriVM>(HttpStatusCode.OK, stpri);
+        }
     }
 }

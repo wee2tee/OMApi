@@ -48,5 +48,50 @@ namespace OMApi.Controllers
 
             return Ok<List<DealerVM>>(dealers);
         }
+
+        [AcceptVerbs("GET")]
+        [ActionName("GetDealerAt")]
+        public IHttpActionResult GetDealerAt(string api_key, string id)
+        {
+            if (api_key == null || api_key != ApiResource.GetValueOf("API_KEY") || id == null || id.Trim().Length == 0)
+                return null;
+
+            DealerVM dealers = this.db.AspNetUsers.Where(a => a.UserType == (int)USER_TYPE.EXTERNAL && a.Id == id).FirstOrDefault().ToViewModel();
+
+            return Ok<DealerVM>(dealers);
+        }
+
+        [AcceptVerbs("POST")]
+        [ActionName("Update")]
+        public HttpResponseMessage UpdateDealer([FromBody] ApiAccessibilities api)
+        {
+            if (api == null || api.API_KEY != ApiResource.GetValueOf("API_KEY") || api.dealer == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+
+            AspNetUsers user = this.db.AspNetUsers.Where(u => u.Id == api.dealer.Id).FirstOrDefault();
+            if (user == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+
+            user.DealerCode = api.dealer.DealerCode;
+            user.DealerType = api.dealer.DealerType;
+            user.PriceCode = api.dealer.PriceCode;
+            user.DlvProfile = api.dealer.DlvProfile;
+            user.Status = api.dealer.Status;
+
+            //user.SerNum = api.dealer.SerNum;
+            //user.PreName = api.dealer.PreName;
+            //user.FullName = api.dealer.FullName;
+            //user.TaxId = api.dealer.TaxId;
+            //user.Addr01 = api.dealer.Addr01;
+            //user.Addr02 = api.dealer.Addr02;
+            //user.Addr03 = api.dealer.Addr03;
+            //user.ZipCod = api.dealer.ZipCod;
+            //user.TelNum = api.dealer.TelNum;
+            //user.FaxNum = api.dealer.FaxNum;
+
+            this.db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }

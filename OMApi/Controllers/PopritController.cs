@@ -79,6 +79,9 @@ namespace OMApi.Controllers
             if (poprit == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound);
 
+            if (poprit.Popr.Status == POPR_STATUS.PO_CONVERTED.ToString()) // this item is already done by another user
+                return Request.CreateResponse<PopritVM>(HttpStatusCode.OK, poprit.ToViewModel()); // just only return OK
+
             poprit.SoNum = api.poprit.SoNum;
             poprit.SoDat = api.poprit.SoDat;
             poprit.SoBy = api.poprit.SoBy;
@@ -101,6 +104,9 @@ namespace OMApi.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound);
 
             var poprit = this.db.Poprit.Where(p => p.SoNum != null && p.SoNum.Substring(0, 12).Trim() == api.poprit.SoNum);
+
+            if (poprit.First().Popr.Status == POPR_STATUS.PO_INVOICED.ToString()) // this item is already done by another user 
+                return Request.CreateResponse(HttpStatusCode.OK); // just only return OK
 
             foreach (var item in poprit)
             {
@@ -125,6 +131,9 @@ namespace OMApi.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound);
 
             var poprit = this.db.Poprit.Where(p => p.IvNum != null && p.IvNum.Substring(0, 12).Trim() == api.poprit.IvNum);
+
+            if (poprit.First().EmsTracking.Trim().Length > 0) // this item is already done by another user
+                return Request.CreateResponse(HttpStatusCode.OK); // just only return OK
 
             foreach (var item in poprit)
             {
