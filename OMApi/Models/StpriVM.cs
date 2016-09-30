@@ -29,10 +29,10 @@ namespace OMApi.Models
         public bool? DiscPerc2 { get; set; }
 
         // เพิ่มโดย
-        public int RecBy { get; set; }
+        public int CreBy { get; set; }
 
         // เพิ่มเมือ
-        public System.DateTime RecDate { get; set; }
+        public System.DateTime CreDate { get; set; }
 
         // แก้ไขล่าสุดโดย
         public int? ChgBy { get; set; }

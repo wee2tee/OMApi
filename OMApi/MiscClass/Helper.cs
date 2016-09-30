@@ -278,8 +278,8 @@ namespace OMApi.MiscClass
                     DiscPerc1 = item.DiscPerc1,
                     Disc2 = item.Disc2,
                     DiscPerc2 = item.DiscPerc2,
-                    RecBy = item.CreBy,
-                    RecDate = item.CreDate,
+                    CreBy = item.CreBy,
+                    CreDate = item.CreDate,
                     ChgBy = item.ChgBy,
                     ChgDate = item.ChgDate
                 });
@@ -303,8 +303,8 @@ namespace OMApi.MiscClass
                 DiscPerc1 = item.DiscPerc1,
                 Disc2 = item.Disc2,
                 DiscPerc2 = item.DiscPerc2,
-                RecBy = item.CreBy,
-                RecDate = item.CreDate,
+                CreBy = item.CreBy,
+                CreDate = item.CreDate,
                 ChgBy = item.ChgBy,
                 ChgDate = item.ChgDate
             };
