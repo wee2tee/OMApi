@@ -24,5 +24,22 @@ namespace OMApi.Controllers
 
             return Ok<List<DlvProfileVM>>(dlv_profile);
         }
+
+        [AcceptVerbs("GET")]
+        [ActionName("GetDlvProfileAt")]
+        public HttpResponseMessage GetDlvProfileById(string api_key, int? id)
+        {
+            if (api_key == null || api_key != ApiResource.GetValueOf("API_KEY") || id == null)
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            DlvProfileVM dlvprofile = this.db.Istab.Find(id).ToDlvProfileViewModel();
+
+            if (dlvprofile == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+
+            return Request.CreateResponse<DlvProfileVM>(HttpStatusCode.OK, dlvprofile);
+        }
+
+
     }
 }
